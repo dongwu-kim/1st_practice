@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Kokoa Talk</title>
+    <title>Welcome to Kakao Talk</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -27,14 +27,24 @@
     <header class="welcome-header">
       <h1 class="welcome-header__title">Fake Kakao talk by dongwu</h1>
       <p class="welcome-header__text">
-        If you have a Kokoa Account, log in with your e-mail or phone number
+        If you have a Kakao Account,<br />
+        log in with your e-mail or phone number
       </p>
     </header>
-    <form id="login-form">
-      <input type="text" placeholder="Email or Phone number" />
-      <input type="password" placeholder="Password" />
+    <form action="friends.html" method="GET" id="login-form">
+      <input
+        type="text"
+        required="required"
+        placeholder="Email-or-Phone number"
+      />
+      <input
+        type="password"
+        required="required"
+        placeholder="Password"
+        minlength="10"
+      />
       <input type="submit" value="Log In" />
-      <a href="#">Find Kokoa Account or Password</a>
+      <a href="#">Find Kakao Account or Password</a>
     </form>
 
     <script
