@@ -3,12 +3,15 @@
 @import "variables.css";
 /*variable things in it like color*/
 @import "screens/login.css";
+@import "screens/friends.css";
 /* screens include main things of page*/
 @import "components/status-bar.css";
 @import "components/nav-bar.css";
 @import "components/screen-header.css";
+@import "components/user-component.css";
 /*components include like statusbar that could observed in pages*/
 body {
+  color: #2e363e;
   font-family: "Open Sans", sans-serif;
 }
 /*style.css only include font-familly or import files records*/
