@@ -5,7 +5,9 @@
 @import "screens/login.css";
 /* screens include main things of page*/
 @import "components/status-bar.css";
-/*components include like statusbar that could observed in every pages*/
+@import "components/nav-bar.css";
+@import "components/screen-header.css";
+/*components include like statusbar that could observed in pages*/
 body {
   font-family: "Open Sans", sans-serif;
 }
