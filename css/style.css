@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno&family=Open+Sans:wght@400;600&display=swap");
+@import "reset.css";
+@import "variables.css";
+/*variable things in it like color*/
+@import "screens/login.css";
+/* screens include main things of page*/
+@import "components/status-bar.css";
+/*components include like statusbar that could observed in every pages*/
+body {
+  font-family: "Open Sans", sans-serif;
+}
+/*style.css only include font-familly or import files records*/
