@@ -3,8 +3,6 @@
   width: 100%;
   height: 100vmax;
   justify-content: space-between;
-  background-color: wheat;
-  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/papyrus_2.png?raw=true);
 }
 .index-main__column:first-child {
   background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/flannel1.png?raw=true);
@@ -18,6 +16,7 @@
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
+  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/papyrus_2.png?raw=true);
 }
 
 .index-main__project1 {
