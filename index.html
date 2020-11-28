@@ -1,37 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="shortcut icon"
+      sizes="16x16 32x32 64x64"
+      href="https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/logo.png?raw=true"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Kakao Talk</title>
+    <title>Kim's Studio</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="status-bar">
-      <div class="status-bar__column">
-        <span>No Service</span>
-        <i class="fas fa-wifi"></i>
+    <div class="index-header">
+      <div class="index-header__column">
+        <i class="fas fa-home fa-xl"></i>
       </div>
-      <div class="status-bar__column">
-        <span>18:43</span>
+      <div class="index-header__column">
+        <span>Kim's Studio</span>
       </div>
-      <div class="status-bar__column">
-        <span>11%</span>
-        <i class="fas fa-battery-three-quarters"></i>
-        <i class="fas fa-bolt"></i>
-        <!--Battery Icon-->
-        <!--Lightning Icon-->
+      <div class="index-header__column">
+        <span><i class="fas fa-search fa-xl"></i></span>
       </div>
     </div>
 
-    <header class="welcome-header">
-      <h1 class="welcome-header__title">Fake Kakao talk by dongwu</h1>
-      <p class="welcome-header__text">
-        If you have a Kakao Account,<br />
-        log in with your e-mail or phone number
-      </p>
-    </header>
-    <form action="friends.html" method="GET" id="login-form">
+    <main class="index-main">
+      <div class="index-main__project1">
+        <a href="project1_login.html"
+          ><img
+            class="index-main__project1-btn-img"
+            src="img/누더기1.png"
+            alt=""
+        /></a>
+        <div>
+          <h1 class="index-main__project1-title">
+            Practice 1 : focus on HTML, CSS
+          </h1>
+          <p class="index-main__project1-text">
+            현재진행중입니다.<br />
+            <br />
+            추후 있을 project도 기대해주세요.
+          </p>
+        </div>
+      </div>
+    </main>
+    <!--
+      <form action="project1_login.html" method="GET" id="login-form">
       <input
         type="text"
         required="required"
@@ -46,6 +60,18 @@
       <input type="submit" value="Log In" />
       <a href="#">Find Kakao Account or Password</a>
     </form>
+  -->
+    <footer class="footer-adress">
+      <div class="footer-adress__column">
+        <adress>Phone : 010-8448-7797</adress>
+      </div>
+      <div class="footer-adress__column">
+        <adress>E-mail : alduk7797@naver.com</adress>
+      </div>
+      <div class="footer-adress__column">
+        <adress>adress : 대전광역시 서구 관저동 1619-7 205호</adress>
+      </div>
+    </footer>
 
     <script
       src="https://kit.fontawesome.com/a107dbe704.js"

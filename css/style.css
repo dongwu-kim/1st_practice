@@ -5,6 +5,9 @@
 @import "screens/login.css";
 @import "screens/friends.css";
 /* screens include main things of page*/
+@import "components/index_header.css";
+@import "screens/index-main.css";
+@import "components/footer-adress.css";
 @import "components/status-bar.css";
 @import "components/nav-bar.css";
 @import "components/screen-header.css";
