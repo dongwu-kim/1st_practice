@@ -5,9 +5,11 @@
   justify-content: space-between;
 }
 .index-main__column:first-child {
+  width: 20%;
   background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/flannel1.png?raw=true);
 }
 .index-main__column:last-child {
+  width: 20%;
   background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/flannel1.png?raw=true);
 }
 .index-main__column:nth-last-child(2) {
