@@ -7,8 +7,10 @@
   background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/papyrus_2.png?raw=true);
 }
 .index-main__column:first-child {
+  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/flannel1.png?raw=true);
 }
 .index-main__column:last-child {
+  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/flannel1.png?raw=true);
 }
 .index-main__column:nth-last-child(2) {
   width: 60%;
