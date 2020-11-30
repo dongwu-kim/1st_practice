@@ -1,0 +1,55 @@
+.phone-main {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-between;
+}
+.phone-main__column:first-child {
+  width: 15vw;
+  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/flannel1.png?raw=true);
+  background-size: 15vw 33.33vh;
+}
+.phone-main__column:last-child {
+  width: 15vw;
+  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/flannel1.png?raw=true);
+  background-size: 15vw 33.33vh;
+}
+.phone-main__column:nth-last-child(2) {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/papyrus_2.png?raw=true);
+  background-size: 70vw 100vh;
+}
+
+.phone-main__project {
+  display: flex;
+  margin-top: 15vh;
+  margin-left: -1vw;
+  margin-bottom: -5vh;
+}
+
+.phone-main__project-btn-img {
+  width: 20vw;
+  height: 7vh;
+  padding: 2vh 0 2vh 0;
+  margin-right: 1vw;
+}
+.phone-main__project-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.phone-main__project-text-title {
+  font-size: 4vw;
+  font-weight: 600;
+  line-height: 2vh;
+  margin-bottom: 0.5vh;
+}
+
+.phone-main__project-text-subtitle {
+  font-size: 2vw;
+  font-weight: 600;
+  line-height: 2vh;
+}
