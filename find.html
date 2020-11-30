@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="shortcut icon"
+      sizes="16x16 32x32 64x64"
+      href="https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/logo.png?raw=true"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Find Screen on Kakao talk</title>
@@ -36,19 +41,19 @@
     </header>
 
     <main class="main-screen">
-      <div class="find-icons">
-        <div class="find-icons__icon">
+      <div class="icon_row">
+        <div class="icon_row__icon">
           <i class="fas fa-qrcode"></i>
           <span>QR Code</span>
         </div>
-        <div class="find-icons__icon">
+        <div class="icon_row__icon">
           <i class="far fa-address-book"></i>
           <p>Add by<br />Contacts</p>
         </div>
-        <div class="find-icons__icon">
+        <div class="icon_row__icon">
           <i class="fas fa-fingerprint"></i><span>Add by ID</span>
         </div>
-        <div class="find-icons__icon">
+        <div class="icon_row__icon">
           <i class="far fa-envelope"></i> <span>Invite</span>
         </div>
       </div>
@@ -77,9 +82,43 @@
               <div class="divider"></div>
               <span class="open-post__members-status">Active</span>
             </div>
-            <div class="open-post__column"></div>
+          </div>
+          <div class="open-post__column">
+            <div class="open-post__photo">
+              <img src="img/fake_img.png" alt="" />
+              <div class="open-post__heart-count">
+                <i class="fas fa-heart fa-xs"></i>
+                <span>105,662</span>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="open-post">
+          <div class="open-post__column">
+            <h5 class="open-post__title">#KDW</h5>
+            <h6 class="open-post__hashtags">#kdw#baeksu#develop</h6>
+            <div class="open-post__members">
+              <img
+                class="open-post__members-img"
+                src="img/clone_profile_img.png"
+                alt=""
+              />
+              <span class="open-post__members-count">0 members</span>
+              <div class="divider"></div>
+              <span class="open-post__members-status">Active</span>
+            </div>
+          </div>
+          <div class="open-post__column">
+            <div class="open-post__photo">
+              <img src="img/fake_img_second_open_photo.jpg" alt="" />
+              <div class="open-post__heart-count-second">
+                <i class="fas fa-heart fa-xs"></i>
+                <span>0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space__box"></div>
       </div>
     </main>
 

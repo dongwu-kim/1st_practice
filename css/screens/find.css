@@ -52,6 +52,8 @@
 
 .open-post {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .open-post__title {
@@ -90,4 +92,46 @@
 
 .open-post__members-status {
   color: #ffb0e0;
+}
+
+.open-post__photo {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.open-post__photo img {
+  width: 120px;
+  height: 120px;
+}
+
+.open-post__heart-count {
+  width: 100px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--reverse-siam-black);
+  padding: 5px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  font-size: 20px;
+}
+
+.open-post__heart-count-second {
+  width: 50px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--reverse-siam-black);
+  padding: 5px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  font-size: 20px;
 }

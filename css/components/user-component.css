@@ -70,3 +70,8 @@
   margin-top: -4px;
   margin-bottom: 10px;
 }
+
+.user-component__subtitle-more-screen-icon{
+  margin-left: 5px;
+  color: rgba(255, 0 ,0, 1);
+}

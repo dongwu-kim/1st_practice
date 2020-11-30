@@ -5,15 +5,17 @@
 @import "screens/login.css";
 @import "screens/friends.css";
 @import "screens/find.css";
+@import "screens/more.css";
+@import "screens/index-main.css";
 /* screens include main things of page*/
 @import "components/index_header.css";
-@import "screens/index-main.css";
 @import "components/footer-adress.css";
 @import "components/status-bar.css";
 @import "components/nav-bar.css";
 @import "components/screen-header.css";
 @import "components/user-component.css";
 @import "components/badge.css";
+@import "components/icon_row.css";
 /*components include like statusbar that could observed in pages*/
 body {
   color: #2e363e;
@@ -22,5 +24,13 @@ body {
 
 .main-screen {
   padding: 0px var(--horizontal-space);
+}
+
+.space__box {
+  height: 120px;
+}
+
+.opacity_zero {
+  opacity: 0;
 }
 /*style.css only include font-familly or import files records*/
