@@ -68,3 +68,26 @@
   display: flex;
   align-items: center;
 }
+
+.open-post__members-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  margin: 10px 5px 10px 0px;
+}
+
+.open-post__members-count {
+  color: var(--main-gray);
+  font-size: 14px;
+}
+
+.open-post__members .divider {
+  width: 1.8px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin: 0 5px;
+}
+
+.open-post__members-status {
+  color: #ffb0e0;
+}
