@@ -3,4 +3,6 @@
   --horizontal-space: 25px;
   --siam-black: rgba(2, 7, 14);
   --reverse-siam-black: rgb(253, 248, 241);
+  --light-line-border: 1px solid rgba(0, 0, 0, 0.2);
+  --main-gray: rgba(0, 0, 0, 0.5);
 }

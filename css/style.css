@@ -4,6 +4,7 @@
 /*variable things in it like color*/
 @import "screens/login.css";
 @import "screens/friends.css";
+@import "screens/find.css";
 /* screens include main things of page*/
 @import "components/index_header.css";
 @import "screens/index-main.css";
@@ -12,13 +13,14 @@
 @import "components/nav-bar.css";
 @import "components/screen-header.css";
 @import "components/user-component.css";
+@import "components/badge.css";
 /*components include like statusbar that could observed in pages*/
 body {
   color: #2e363e;
   font-family: "Open Sans", sans-serif;
 }
 
-.chats-screen {
+.main-screen {
   padding: 0px var(--horizontal-space);
 }
 /*style.css only include font-familly or import files records*/

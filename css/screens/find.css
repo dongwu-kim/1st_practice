@@ -1,0 +1,70 @@
+.find-icons {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 17px;
+}
+.find-icons__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.find-icons__icon i {
+  font-size: 35px;
+}
+.find-icons__icon span {
+  margin-top: 15px;
+  font-weight: 600;
+}
+.find-icons__icon p {
+  margin-top: 10px;
+  font-weight: 600;
+  text-indent: 1ch;
+}
+.recommended_friends {
+  padding: 15px 0px;
+  border-bottom: var(--light-line-border);
+  border-top: var(--light-line-border);
+}
+.recommended_friends-title {
+  color: var(--main-gray);
+}
+.recommended_friends span {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+  color: var(--main-gray);
+}
+
+.open-chat__header {
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.7;
+  margin: 25px 0px;
+}
+
+.open-chat__header span {
+  color: var(--main-gray);
+}
+
+.open-post {
+  display: flex;
+}
+
+.open-post__title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.open-post__hashtags {
+  text-transform: uppercase;
+  color: var(--main-gray);
+}
+
+.open-post__members {
+  display: flex;
+  align-items: center;
+}
