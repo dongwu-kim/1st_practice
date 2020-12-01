@@ -1,0 +1,38 @@
+.alt-header {
+  padding: var(--horizontal-space);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alt-header__title {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.alt-header__column {
+  width: 33%;
+  display: flex;
+}
+
+.alt-header__column:first-child {
+  margin-right: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.alt-header__column:nth-child(2) {
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.alt-header__column:last-child {
+  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.alt-header__column:last-child span:first-child {
+  margin-right: 25px;
+}

@@ -9,6 +9,8 @@
 @import "screens/index-main.css";
 @import "screens/phone-main.css";
 @import "screens/pc-main.css";
+@import "screens/settings.css";
+@import "screens/chat.css";
 /* screens include main things of page*/
 @import "components/index_header.css";
 @import "components/footer-adress.css";
@@ -18,6 +20,8 @@
 @import "components/user-component.css";
 @import "components/badge.css";
 @import "components/icon_row.css";
+@import "components/alternative_screen_header.css";
+@import "components/no_mobile.css";
 /*components include like statusbar that could observed in pages*/
 body {
   color: #2e363e;

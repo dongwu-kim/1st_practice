@@ -135,3 +135,24 @@
   right: 5px;
   font-size: 20px;
 }
+
+@keyframes heartbeat {
+  0% {
+    color: white;
+    transform: none;
+  }
+  50% {
+    color: tomato;
+    transform: scale(1.33);
+  }
+  100% {
+    color: white;
+    transform: none;
+  }
+}
+
+.open-post__heart-count:hover i,
+.open-post__heart-count-second:hover i {
+  will-change: transform;
+  animation: heartbeat 1s linear infinite;
+}
