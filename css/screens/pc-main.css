@@ -31,7 +31,8 @@
 .pc-main__project-btn-img {
   width: 25vw;
   height: 20vh;
-  margin-left: -2vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
 }
 .pc-main__project-text {
   display: flex;

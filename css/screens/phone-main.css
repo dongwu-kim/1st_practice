@@ -26,7 +26,7 @@
 .phone-screen .pc-main__project {
   display: flex;
   margin-top: 15vh;
-  margin-left: -1vw;
+  margin-left: 1vw;
   margin-bottom: -5vh;
 }
 
@@ -34,7 +34,7 @@
   width: 20vw;
   height: 7vh;
   padding: 2vh 0 2vh 0;
-  margin-right: 1vw;
+  margin-right: 5vw;
 }
 .phone-screen .pc-main__project-text {
   display: flex;
