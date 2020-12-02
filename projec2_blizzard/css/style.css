@@ -6,7 +6,7 @@
 @import "screens/game_section.css";
 
 @import "components/home__header.css";
-
+@import "components/hover_layout.css";
 body {
   width: 100vw;
   background-color: #002650;

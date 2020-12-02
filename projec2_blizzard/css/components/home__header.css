@@ -6,9 +6,10 @@
     align-items: center;
     background-color: #0a0c11;
     color: var(--blue);
-    font-size: 30px;
+    font-size: 34px;
     padding: 5px 20px;
     box-sizing: border-box;
+    border-bottom: 3px solid black;
 
     font-family: "Nanum Brush Script", cursive;
     position: absolute;
@@ -39,7 +40,7 @@
     align-items: center;
     background-color: #0a0c11;
     color: white;
-    padding: 15px 30px;
+    padding: 0px 50px;
     box-sizing: border-box;
     font-family: "Nanum Brush Script", cursive;
     position: absolute;
@@ -49,14 +50,18 @@
 
   .nav-mobile {
     visibility: hidden;
+    z-index: 0;
   }
   .nav-desktop .nav-desktop__content:first-child {
     display: flex;
     width: 50%;
     font-size: 35px;
     justify-content: space-between;
+    margin: 10px 0 10px;
   }
-  .title {
+  .nav-title {
+    width: 90px;
+    height: 30px;
     color: var(--blue);
   }
 

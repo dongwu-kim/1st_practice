@@ -1,0 +1,77 @@
+@keyframes layoutprint {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+@keyframes btnmove {
+  from {
+    transform: none;
+  }
+  to {
+    transform: translateY(-70px);
+  }
+}
+
+.hover-layout {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 180px;
+  height: 240px;
+  background-color: black;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--blue);
+}
+
+.hover-layout:hover {
+  animation: layoutprint 0.3s ease-in-out forwards;
+}
+
+.hover-layout:hover button {
+  animation: btnmove 0.3s ease-in-out forwards;
+}
+
+.hover-layout__btn {
+  opacity: 1;
+  font-size: 20px;
+  padding: 10px 40px;
+  background-color: var(--dark-blue);
+  border: none;
+  outline: none;
+  color: white;
+  border: 1px solid var(--blue);
+}
+
+.hover-layout__btn:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: var(--blue);
+}
+
+.hover-layout__link {
+  display: flex;
+  position: absolute;
+  left: 18px;
+  bottom: 55px;
+  font-size: 17px;
+}
+
+.hover-layout__link span {
+  color: white;
+}
+
+.hover-layout__link i {
+  color: var(--blue);
+  margin: 20px 10px 0 0;
+}
+.hover-layout__link:hover i {
+  transition: all 0.3s ease-in-out;
+  color: white;
+}
+.hover-layout:hover a {
+  animation: btnmove 0.3s ease-in-out forwards;
+}
