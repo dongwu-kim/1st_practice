@@ -7,7 +7,7 @@
     background-color: #0a0c11;
     color: var(--blue);
     font-size: 30px;
-    padding: 10px 20px;
+    padding: 5px 20px;
     box-sizing: border-box;
 
     font-family: "Nanum Brush Script", cursive;
@@ -20,7 +20,9 @@
     font-size: 20px;
   }
 
-  .title {
+  .nav-title {
+    width: 75px;
+    height: 30px;
     color: var(--blue);
   }
 
