@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Brush+Script&display=swap');
+</style>
+@import "reset.css";
+@import "variables.css";
+
+@import "screens/home_screen.css";
+
+@import "components/home__header.css";
+
+body {
+  width: 100vw;
+  background-color: #002650;
+}
