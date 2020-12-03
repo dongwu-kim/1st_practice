@@ -157,10 +157,10 @@
   }
   .game-section__title {
     display: flex;
-    width: 1020px;
+    width: 980px;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 0 12px;
+    padding: 0 25px 0 0;
     margin-bottom: 10px;
   }
 
