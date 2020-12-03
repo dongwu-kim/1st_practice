@@ -62,7 +62,7 @@
     font-family: "Noto Sans KR", cursive;
     font-weight: 300;
     border: 1px solid var(--blue);
-    background-color: #007bc6;
+    background-color: var(--button-blue);
     color: white;
   }
 
@@ -141,7 +141,7 @@
     font-family: "Noto Sans KR", cursive;
     font-weight: 300;
     border: 1px solid var(--blue);
-    background-color: #007bc6;
+    background-color: var(--button-blue);
     color: white;
   }
 
@@ -218,7 +218,7 @@
     font-family: "Noto Sans KR", cursive;
     font-weight: 300;
     border: 1px solid var(--blue);
-    background-color: #007bc6;
+    background-color: var(--button-blue);
     color: white;
   }
 

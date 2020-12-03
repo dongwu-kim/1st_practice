@@ -48,16 +48,16 @@
     justify-content: space-between;
     align-items: center;
     background-color: #0a0c11;
-    color: white;
-    padding: 0px 50px;
+    color: var(--light-gray);
+    padding: 8px 50px;
     box-sizing: border-box;
-    font-family: "Nanum Brush Script", cursive;
+    font-family: "Noto Sans KR", cursive;
     z-index: 99;
   }
   .nav-desktop .nav-desktop__content:first-child {
     display: flex;
     width: 50%;
-    font-size: 35px;
+    font-size: 30px;
     justify-content: space-between;
     margin: 10px 0 10px;
   }

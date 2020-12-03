@@ -6,6 +6,7 @@
 @import "screens/game_section.css";
 @import "screens/app-section.css";
 @import "screens/employment-section.css";
+@import "screens/screen_footer.css";
 
 @import "components/home__header.css";
 @import "components/hover_layout.css";
