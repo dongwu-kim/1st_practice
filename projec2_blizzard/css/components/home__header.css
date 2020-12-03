@@ -1,6 +1,13 @@
 @media screen and (max-width: 760px) {
+  .nav-desktop {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+  }
   .nav-container {
     width: 100%;
+    height: auto;
+    display: flex;
   }
   .nav-mobile {
     width: 100%;
@@ -10,13 +17,11 @@
     background-color: #0a0c11;
     color: var(--blue);
     font-size: 34px;
-    padding: 5px 0;
+    padding: 5px 20px;
     box-sizing: border-box;
     border-bottom: 3px solid black;
 
     font-family: "Nanum Brush Script", cursive;
-    position: absolute;
-    top: 0;
     z-index: 99;
   }
 
@@ -29,13 +34,14 @@
     height: 30px;
     color: var(--blue);
   }
-
-  .nav-desktop {
-    visibility: hidden;
-  }
 }
 
 @media screen and (min-width: 760px) {
+  .nav-mobile {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+  }
   .nav-desktop {
     width: 100%;
     display: flex;
@@ -46,14 +52,7 @@
     padding: 0px 50px;
     box-sizing: border-box;
     font-family: "Nanum Brush Script", cursive;
-    position: absolute;
-    top: 0;
     z-index: 99;
-  }
-
-  .nav-mobile {
-    visibility: hidden;
-    z-index: 0;
   }
   .nav-desktop .nav-desktop__content:first-child {
     display: flex;
