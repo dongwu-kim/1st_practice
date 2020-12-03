@@ -4,6 +4,7 @@
 
 @import "screens/marketing_section.css";
 @import "screens/game_section.css";
+@import "screens/app-section.css";
 
 @import "components/home__header.css";
 @import "components/hover_layout.css";
