@@ -6,20 +6,20 @@
 }
 .pc-main__column:first-child {
   width: 20vw;
-  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/project1_kakao/img/flannel1.png?raw=true);
-  background-size: 20vw 60vh;
+  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/christmas_left.jpg?raw=true);
+  background-size: 20vw 180vh;
 }
 .pc-main__column:last-child {
   width: 20vw;
-  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/project1_kakao/img/flannel1.png?raw=true);
-  background-size: 20vw 60vh;
+  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/christmas_right.jpg?raw=true);
+  background-size: 20vw 180vh;
 }
 .pc-main__column:nth-last-child(2) {
   width: 60vw;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/project1_kakao/img/main_page_background.png?raw=true);
+  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/christmas_wood.jpg?raw=true);
   background-size: 60vw 180vh;
 }
 
