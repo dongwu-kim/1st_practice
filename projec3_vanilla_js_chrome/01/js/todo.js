@@ -22,7 +22,6 @@ function deleteToDo(event) {
   toDos = cleanToDos;
   //toDos changed, and we change variable type to let from const
   saveToDos();
-  location.reload();
 }
 
 function saveToDos() {
@@ -35,7 +34,7 @@ function printToDo(text) {
   const li = document.createElement("li");
   const delBtn = document.createElement("button");
   const span = document.createElement("span");
-  delBtn.innerText = "✂";
+  delBtn.innerText = "✌";
   delBtn.addEventListener("click", deleteToDo);
   span.innerText = text;
   // create html elements as list, button, span
