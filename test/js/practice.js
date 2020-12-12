@@ -1,6 +1,7 @@
-import logMedia from "media_variables.js";
+// import logMedia from "media_variables.js";
 
-const chairImage = document.querySelector(".index-main__chair"),
+const chairImageLow = document.querySelector(".index-main__chair-low"),
+  chairImageHigh = document.querySelector(".index-main__chair-high"),
   bodyBgColor = document.querySelector("body");
 
 const lowImg = new Image();
@@ -8,14 +9,14 @@ const highImg = new Image();
 
 function paintLowImage() {
   lowImg.src = `img/chair_blue.gif`;
-  chairImage.append(lowImg);
+  chairImageLow.append(lowImg);
   lowImg.classList.add(`bg-chair`);
 }
 
 function paintHighImage() {
   highImg.src = `img/chair_black.gif`;
   highImg.classList.add(`bg-chair`);
-  chairImage.append(highImg);
+  chairImageHigh.append(highImg);
 }
 
 function bodyColorChange() {
@@ -39,7 +40,7 @@ function highImgPromise() {
     (resolve) => {
       setTimeout(() => {
         resolve(loadHighImage());
-      }, 500);
+      }, 1000);
     },
     (reject) => {
       reject(console.log(`rejected`));
