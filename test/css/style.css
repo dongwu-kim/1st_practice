@@ -3,10 +3,16 @@
 @import "variables.css";
 /*variable things in it like color*/
 
+@import "screens/mobile_screen.css";
+@import "screens/tablet_screen.css";
+@import "screens/pc_screen.css";
+
 @import "components/footer-adress.css";
 @import "components/index-header.css";
 
 body {
+  height: 100vh;
+  width: 100vw;
   color: #2e363e;
   font-family: "Open Sans", sans-serif;
 }
@@ -15,11 +21,4 @@ body {
   padding: 0px var(--horizontal-space);
 }
 
-.space__box {
-  height: 120px;
-}
-
-.opacity_zero {
-  opacity: 0;
-}
 /*style.css only include font-familly or import files records*/

@@ -1,24 +1,32 @@
-const chairImage = document.querySelector(".index-main__chair");
+import logMedia from "media_variables.js";
+
+const chairImage = document.querySelector(".index-main__chair"),
+  bodyBgColor = document.querySelector("body");
 
 const lowImg = new Image();
 const highImg = new Image();
 
 function paintLowImage() {
-  lowImg.src = `img/chair.gif`;
+  lowImg.src = `img/chair_blue.gif`;
   chairImage.append(lowImg);
-  lowImg.classList.add(`bg-chair__low`);
+  lowImg.classList.add(`bg-chair`);
 }
 
 function paintHighImage() {
-  highImg.src = `img/chair1.gif`;
-  highImg.classList.add(`bg-chair__high`, `invisible`);
+  highImg.src = `img/chair_black.gif`;
+  highImg.classList.add(`bg-chair`);
   chairImage.append(highImg);
+}
+
+function bodyColorChange() {
+  bodyBgColor.classList.add(`changed`);
 }
 
 function handleHighImageLoad() {
   lowImg.classList.add(`fadeout`);
   highImg.classList.add(`fadein`);
   highImg.classList.remove(`invisible`);
+  bodyColorChange();
 }
 
 function loadHighImage() {
@@ -31,7 +39,7 @@ function highImgPromise() {
     (resolve) => {
       setTimeout(() => {
         resolve(loadHighImage());
-      }, 50);
+      }, 500);
     },
     (reject) => {
       reject(console.log(`rejected`));
