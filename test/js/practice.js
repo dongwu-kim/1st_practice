@@ -1,4 +1,4 @@
-import logMedia from "media_variables.js";
+import { logMedia } from "./media_variables.js";
 
 const chairImageLow = document.querySelector(".index-main__chair-low"),
   chairImageHigh = document.querySelector(".index-main__chair-high"),
