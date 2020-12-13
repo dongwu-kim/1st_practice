@@ -6,9 +6,7 @@ const phoneMode = window.matchMedia("(max-width: 439.9px)"),
 // ipad pro + pc
 
 ///*
-function init() {
+function logMedia() {
   console.log(phoneMode.matches, tabletMode, pcMode);
 }
 //*/
-
-init();
