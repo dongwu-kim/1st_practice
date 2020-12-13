@@ -40,7 +40,7 @@ function highImgPromise() {
     (resolve) => {
       setTimeout(() => {
         resolve(loadHighImage());
-      }, 1000);
+      }, 800);
     },
     (reject) => {
       reject(console.log(`rejected`));
