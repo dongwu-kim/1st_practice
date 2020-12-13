@@ -24,6 +24,7 @@
       background-color: black;
     }
   }
+
   .changed {
     animation: bodyWhiteToBlack 2s ease-in-out forwards;
   }

@@ -34,15 +34,23 @@ function loadHighImage() {
 }
 
 function highImgPromise() {
-  return new Promise((resolve) => {
-    $.get("img/chair_black.gif", function () {
-      resolve(`resolved`);
-    });
-  });
+  return (highImgPromise = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(loadHighImage());
+    }, 800);
+  }));
 }
 
 async function asyncLoadHighImage() {
-  await highImgPromise().then(loadHighImage);
+  await highImgPromise();
+}
+
+function divInvisible(element) {
+  element.classList.add(`invisible`);
+}
+
+function divVisible(element) {
+  element.classList.remove(`invisible`);
 }
 
 function chairAnimation() {
@@ -50,4 +58,4 @@ function chairAnimation() {
   asyncLoadHighImage();
 }
 
-export { chairAnimation };
+export { bodyBgColor, chairAnimation, divInvisible, divVisible };

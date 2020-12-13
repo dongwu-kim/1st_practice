@@ -1,5 +1,9 @@
 @media screen and (max-width: 440px) {
-  .index-main__chair {
+  .index-main__chair-low {
+    display: none;
+    visibility: hidden;
+  }
+  .index-main__chair-high {
     display: none;
     visibility: hidden;
   }
