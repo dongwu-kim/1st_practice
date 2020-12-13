@@ -1,0 +1,47 @@
+@media screen and (min-width: 768px) {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes bodyWhiteToBlack {
+    from {
+      background-color: none;
+    }
+    to {
+      background-color: black;
+    }
+  }
+  .changed {
+    animation: bodyWhiteToBlack 2s ease-in-out forwards;
+  }
+  /* body bgcolor change - chained practice.js */
+
+  .bg-chair {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+  }
+
+  .fadeout {
+    animation: fadeOut 2s ease-in-out forwards;
+  }
+
+  .fadein {
+    animation: fadeIn 2s ease-in-out forwards;
+  }
+}
