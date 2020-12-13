@@ -1,5 +1,5 @@
 ///*
-export function logMedia() {
+function logMedia() {
   const phoneMode = window.matchMedia("(max-width: 439.9px)"),
     // mobile
     tabletMode = window.matchMedia(
@@ -10,5 +10,7 @@ export function logMedia() {
   // ipad pro + pc
   console.log(phoneMode.matches, tabletMode, pcMode);
 }
+
+export { logMedia };
 
 //*/
