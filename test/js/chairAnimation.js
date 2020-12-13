@@ -1,5 +1,3 @@
-import { logMedia } from "./media_variables.js";
-
 const chairImageLow = document.querySelector(".index-main__chair-low"),
   chairImageHigh = document.querySelector(".index-main__chair-high"),
   bodyBgColor = document.querySelector("body");
@@ -36,26 +34,30 @@ function loadHighImage() {
 }
 
 function highImgPromise() {
-  return (highImgPromise = new Promise(
-    (resolve) => {
-      setTimeout(() => {
-        resolve(loadHighImage());
-      }, 800);
-    },
-    (reject) => {
-      reject(console.log(`rejected`));
-    }
-  ));
+  return (highImgPromise = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(loadHighImage());
+    }, 800);
+  }));
 }
 
 async function asyncLoadHighImage() {
   await highImgPromise();
 }
 
-function init() {
-  paintLowImage();
-  asyncLoadHighImage();
-  logMedia();
+function divInvisible() {
+  chairImageHigh.classList.add(`invisible`);
+  chairImageLow.classList.add(`invisible`);
 }
 
-init();
+function divVisible() {
+  chairImageHigh.classList.remove(`invisible`);
+  chairImageLow.classList.remove(`invisible`);
+}
+
+function chairAnimation() {
+  paintLowImage();
+  asyncLoadHighImage();
+}
+
+export { bodyBgColor, chairAnimation, divInvisible, divVisible };
