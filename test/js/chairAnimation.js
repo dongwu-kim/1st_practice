@@ -2,17 +2,16 @@ const chairImageLow = document.querySelector(".index-main__chair-low"),
   chairImageHigh = document.querySelector(".index-main__chair-high"),
   bodyBgColor = document.querySelector("body");
 
-const lowImg = new Image();
-const highImg = new Image();
-
-function paintLowImage() {
-  lowImg.src = `img/chair_blue.gif`;
+function paintLowImage(file) {
+  const lowImg = new Image();
+  lowImg.src = file;
   chairImageLow.append(lowImg);
   lowImg.classList.add(`bg-chair`);
 }
 
-function paintHighImage() {
-  highImg.src = `img/chair_black.gif`;
+function paintHighImage(file) {
+  const highImg = new Image();
+  highImg.src = file;
   highImg.classList.add(`bg-chair`);
   chairImageHigh.append(highImg);
 }
@@ -21,33 +20,29 @@ function bodyColorChange() {
   bodyBgColor.classList.add(`changed`);
 }
 
-function handleHighImageLoad() {
-  lowImg.classList.add(`fadeout`);
-  highImg.classList.add(`fadein`);
-  highImg.classList.remove(`invisible`);
-  bodyColorChange();
-}
-
-function loadHighImage() {
-  paintHighImage();
-  highImg.addEventListener(`load`, handleHighImageLoad);
-}
-
-function highImgPromise() {
+function highImgPromise(file) {
   return new Promise((resolve) => {
-    $.get("img/chair_black.gif", function () {
-      resolve(`resolved`);
-    });
+    setTimeout(() => {
+      resolve(paintHighImage(file));
+    }, 500);
   });
 }
 
-async function asyncLoadHighImage() {
-  await highImgPromise().then(loadHighImage);
+function handleHighImageLoad() {
+  chairImageLow.classList.add(`fadeout`);
+  chairImageHigh.classList.add(`fadein`);
+  chairImageHigh.classList.remove(`invisible`);
+  bodyColorChange();
 }
 
-function chairAnimation() {
-  paintLowImage();
-  asyncLoadHighImage();
+async function asyncLoadHighImage(file) {
+  await highImgPromise(file);
+  handleHighImageLoad();
+}
+
+function chairAnimation(lowFilePath, highFilePath) {
+  paintLowImage(lowFilePath);
+  asyncLoadHighImage(highFilePath);
 }
 
 export { chairAnimation };

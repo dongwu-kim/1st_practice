@@ -27,7 +27,7 @@ function divVisible(element) {
 }
 
 function handleMode() {
-  chairAnimation();
+  chairAnimation(`img/chair_blue.gif`, `img/chair_black.gif`);
 }
 /*console.log(phoneMode, tabletMode, pcMode);
   console.log(JSON.stringify(bodyBgColor.classList));*/
