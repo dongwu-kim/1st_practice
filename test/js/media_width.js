@@ -1,7 +1,7 @@
 import { chairAnimation, chairImageHigh, remove } from "./practice.js";
 
 const phoneMode = window.matchMedia("(max-width: 439.9px)"),
-  transverseMode = window.matchMedia("(max-height): 500px"),
+  transverseMode = window.matchMedia("(max-height: 500px)"),
   // mobile
   tabletMode = window.matchMedia("(min-width: 440px) and (max-width: 768px)"),
   //tablet
@@ -65,6 +65,7 @@ function modeChanged() {
 }
 
 function refresh() {
+  console.log(ipadMode.matches && transverseMode.matches);
   if (phoneMode.matches) {
     chairAnimation(
       `img/chair_blue.gif`,
@@ -72,7 +73,7 @@ function refresh() {
       `img/chair_black.gif`,
       `bg-chair__phone`
     );
-  } else if (tabletMode && transverseMode) {
+  } else if (ipadMode.matches && transverseMode.matches) {
     chairAnimation(
       `img/chair_blue.gif`,
       `bg-chair__phone`,

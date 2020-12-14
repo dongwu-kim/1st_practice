@@ -3,9 +3,11 @@
 @import "variables.css";
 /*variable things in it like color*/
 
+@import "chair_anim/mobile_screen.css";
+@import "chair_anim/tablet_screen.css";
+@import "chair_anim/pc_screen.css";
+
 @import "screens/mobile_screen.css";
-@import "screens/tablet_screen.css";
-@import "screens/pc_screen.css";
 
 @import "components/footer-adress.css";
 @import "components/index-header.css";
