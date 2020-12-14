@@ -59,3 +59,12 @@ function chairAnimation() {
 }
 
 export { bodyBgColor, chairAnimation, divInvisible, divVisible };
+
+
+function loadImage (src) {
+  return new Promise((resolve, reject) => {
+  const img = new Image()
+  img.onload = () => resolve(img)
+  img. = evt => reject(URIError(`이미지 로딩 실패 ${evt.target.src}`))
+    })
+  }
