@@ -25,14 +25,23 @@ const phoneMode = window.matchMedia("(max-width: 439.9px)"),
   console.log(JSON.stringify(bodyBgColor.classList));*/
 
 function handleMode() {
-  if (tabletMode.matches === pcMode.matches) {
-    remove();
-    chairAnimation(
-      `img/chair_blue.gif`,
-      `bg-chair`,
-      `img/chair_black.gif`,
-      `bg-chair`
-    );
+  if (tabletMode.matches && pcMode.matches) {
+    if (chairImageHigh.querySelector(`img`) === null) {
+      chairAnimation(
+        `img/chair_blue.gif`,
+        `bg-chair`,
+        `img/chair_black.gif`,
+        `bg-chair`
+      );
+    } else {
+      remove();
+      chairAnimation(
+        `img/chair_blue.gif`,
+        `bg-chair`,
+        `img/chair_black.gif`,
+        `bg-chair`
+      );
+    }
   } else if (phoneMode.matches) {
     remove();
   }
@@ -55,8 +64,8 @@ function refresh() {
     );
   }
 }
-
-function handlePhoneMode() {
+/*
+function handlePhoneModeOrientation() {
   if (phoneMode.matches) {
     chairAnimation(
       `img/chair_blue.gif`,
@@ -69,14 +78,31 @@ function handlePhoneMode() {
   }
 }
 
-function orientatePhone() {
-  window.addEventListener("orientationchange", handlePhoneMode);
+function handleIpadOrientation() {
+  if (pcMode.matches) {
+    chairAnimation(
+      `img/chair_blue.gif`,
+      `bg-chair`,
+      `img/chair_black.gif`,
+      `bg-chair`
+    );
+  } else {
+    remove();
+  }
 }
+
+function orientatePhone() {
+  window.addEventListener(
+    "orientationchange",
+    handlePhoneMode,
+    handleIpadOrientation
+  );
+} */
 
 function handle() {
   modeChanged();
   refresh();
-  orientatePhone();
+  //orientatePhone();
 }
 
 export { handle };
