@@ -27,10 +27,9 @@
 
 @media screen and (min-width: 440px) and (max-height: 500px) {
   .index-header {
-    width: 100vw;
-    display: flex;
-    position: fixed;
-    top: 0px;
+    width: 0;
+    height: 0;
+    display: none;
   }
   .index-header__column {
     padding: 2vh 2vw 2vh 2vw;

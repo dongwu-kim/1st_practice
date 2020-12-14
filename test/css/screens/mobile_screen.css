@@ -1,4 +1,4 @@
-@keyframes blackToWhite {
+@keyframes whitetoBlack {
   from {
     background-color: white;
   }
@@ -30,7 +30,7 @@
   width: 100vw;
   justify-content: center;
   align-items: center;
-  animation: blackToWhite 1.5s ease-in-out forwards;
+  animation: whitetoBlack 1.5s ease-in-out forwards;
 }
 .index-main__project {
   display: flex;
