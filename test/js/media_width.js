@@ -1,10 +1,13 @@
 import { chairAnimation, chairImageHigh, remove } from "./practice.js";
 
 const phoneMode = window.matchMedia("(max-width: 439.9px)"),
+  transverseMode = window.matchMedia("(max-height): 500px"),
   // mobile
   tabletMode = window.matchMedia("(min-width: 440px) and (max-width: 768px)"),
+  //tablet
+  ipadMode = window.matchMedia("(min-width: 768px) and (max-width:1024px)"),
   // ipad
-  pcMode = window.matchMedia("(min-width: 768px)");
+  pcMode = window.matchMedia("(min-width: 1024px)");
 // ipad pro + pc
 
 /*function handleMode() {
@@ -21,11 +24,14 @@ const phoneMode = window.matchMedia("(max-width: 439.9px)"),
     );
   }
 }*/
-/*console.log(phoneMode, tabletMode, pcMode);
+/*console.log(phoneMode, tabletMode, ipadMode);
   console.log(JSON.stringify(bodyBgColor.classList));*/
 
 function handleMode() {
-  if (tabletMode.matches && pcMode.matches) {
+  if (
+    (tabletMode.matches && ipadMode.matches) ||
+    (ipadMode.matches && pcMode.matches)
+  ) {
     if (chairImageHigh.querySelector(`img`) === null) {
       chairAnimation(
         `img/chair_blue.gif`,
@@ -44,17 +50,35 @@ function handleMode() {
     }
   } else if (phoneMode.matches) {
     remove();
+    chairAnimation(
+      `img/chair_blue.gif`,
+      `bg-chair__phone`,
+      `img/chair_black.gif`,
+      `bg-chair__phone`
+    );
   }
 }
 
 function modeChanged() {
   window.addEventListener("resize", handleMode);
-  /*console.log(pcMode.matches);*/
+  /*console.log(ipadMode.matches);*/
 }
 
 function refresh() {
   if (phoneMode.matches) {
-    console.log(`phoneMode`);
+    chairAnimation(
+      `img/chair_blue.gif`,
+      `bg-chair__phone`,
+      `img/chair_black.gif`,
+      `bg-chair__phone`
+    );
+  } else if (tabletMode && transverseMode) {
+    chairAnimation(
+      `img/chair_blue.gif`,
+      `bg-chair__phone`,
+      `img/chair_black.gif`,
+      `bg-chair__phone`
+    );
   } else {
     chairAnimation(
       `img/chair_blue.gif`,
@@ -79,7 +103,7 @@ function handlePhoneModeOrientation() {
 }
 
 function handleIpadOrientation() {
-  if (pcMode.matches) {
+  if (ipadMode.matches) {
     chairAnimation(
       `img/chair_blue.gif`,
       `bg-chair`,

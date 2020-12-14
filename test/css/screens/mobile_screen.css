@@ -9,7 +9,7 @@
   }
 }
 
-@media screen and (min-width: 440px) {
+@media screen and (min-width: 440px) and (max-height: 500px) {
   .changed {
     animation: bodyWhiteToBlack 2s ease-in-out forwards;
   }

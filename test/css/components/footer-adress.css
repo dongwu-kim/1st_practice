@@ -28,6 +28,37 @@
   }
 }
 
+@media screen and (min-width: 439.9px) and (max-height: 500px) {
+  .footer-adress {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    visibility: hidden;
+  }
+  .footer-adress .footer-adress__column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    background-color: var(--siam-black);
+    color: var(--reverse-siam-black);
+    opacity: 0.835;
+    font-size: 13px;
+
+    box-sizing: border-box;
+  }
+  .footer-adress .footer-adress__column:first-child {
+    width: 30vw;
+  }
+  .footer-adress .footer-adress__column:nth-child(2) {
+    width: 30vw;
+  }
+  .footer-adress .footer-adress__column:last-child {
+    width: 40vw;
+  }
+}
+
 @media screen and (min-width: 440px) and (max-width: 767.9px) {
   .footer-adress {
     width: 100vw;
