@@ -1,20 +1,17 @@
-import { logMedia } from "./media_variables.js";
-
 const chairImageLow = document.querySelector(".index-main__chair-low"),
   chairImageHigh = document.querySelector(".index-main__chair-high"),
   bodyBgColor = document.querySelector("body");
 
-const lowImg = new Image();
-const highImg = new Image();
-
-function paintLowImage() {
-  lowImg.src = `img/chair_blue.gif`;
+function paintLowImage(file) {
+  const lowImg = new Image();
+  lowImg.src = file;
   chairImageLow.append(lowImg);
   lowImg.classList.add(`bg-chair`);
 }
 
-function paintHighImage() {
-  highImg.src = `img/chair_black.gif`;
+function paintHighImage(file) {
+  const highImg = new Image();
+  highImg.src = file;
   highImg.classList.add(`bg-chair`);
   chairImageHigh.append(highImg);
 }
@@ -23,39 +20,29 @@ function bodyColorChange() {
   bodyBgColor.classList.add(`changed`);
 }
 
-function handleHighImageLoad() {
-  lowImg.classList.add(`fadeout`);
-  highImg.classList.add(`fadein`);
-  highImg.classList.remove(`invisible`);
+function highImgPromise(file) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(paintHighImage(file));
+    }, 500);
+  });
+}
+
+function handleHighImageFadeIn() {
+  chairImageLow.classList.add(`fadeout`);
+  chairImageHigh.classList.add(`fadein`);
+  chairImageHigh.classList.remove(`invisible`);
   bodyColorChange();
 }
 
-function loadHighImage() {
-  paintHighImage();
-  highImg.addEventListener(`load`, handleHighImageLoad);
+async function asyncLoadHighImage(file) {
+  await highImgPromise(file);
+  handleHighImageFadeIn();
 }
 
-function highImgPromise() {
-  return (highImgPromise = new Promise(
-    (resolve) => {
-      setTimeout(() => {
-        resolve(loadHighImage());
-      }, 800);
-    },
-    (reject) => {
-      reject(console.log(`rejected`));
-    }
-  ));
+function chairAnimation(lowFilePath, highFilePath) {
+  paintLowImage(lowFilePath);
+  asyncLoadHighImage(highFilePath);
 }
 
-async function asyncLoadHighImage() {
-  await highImgPromise();
-}
-
-function init() {
-  paintLowImage();
-  asyncLoadHighImage();
-  logMedia();
-}
-
-init();
+export { chairAnimation, chairImageHigh };
