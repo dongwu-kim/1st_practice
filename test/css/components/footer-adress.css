@@ -13,7 +13,7 @@
     background-color: var(--siam-black);
     color: var(--reverse-siam-black);
     opacity: 0.835;
-    font-size: 13vw;
+    font-size: 13px;
 
     box-sizing: border-box;
   }
