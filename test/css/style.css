@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=MuseoModerno&family=Open+Sans:wght@400;600&display=swap");
 @import "reset.css";
 @import "variables.css";
+@import "animation.css";
 /*variable things in it like color*/
 
 @import "chair_anim/mobile_screen.css";

@@ -1,7 +1,7 @@
-import { handle } from "./media_width.js";
+import { handlechairAnimation } from "./media_width.js";
 
 function init() {
-  handle();
+  handlechairAnimation();
 }
 
 init();

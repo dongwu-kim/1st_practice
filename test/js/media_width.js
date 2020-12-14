@@ -1,4 +1,4 @@
-import { chairAnimation, chairImageHigh, remove } from "./practice.js";
+import { chairAnimation, chairImageHigh, remove } from "./imgAnimation.js";
 
 const phoneMode = window.matchMedia("(max-width: 439.9px)"),
   transverseMode = window.matchMedia("(max-height: 500px)"),
@@ -40,6 +40,8 @@ function handleMode() {
         `bg-chair`
       );
     } else {
+      console.log(tabletMode.matches && ipadMode.matches);
+      console.log(ipadMode.matches && pcMode.matches);
       remove();
       chairAnimation(
         `img/chair_blue.gif`,
@@ -64,16 +66,9 @@ function modeChanged() {
   /*console.log(ipadMode.matches);*/
 }
 
-function refresh() {
+function deviceInitialize() {
   console.log(ipadMode.matches && transverseMode.matches);
-  if (phoneMode.matches) {
-    chairAnimation(
-      `img/chair_blue.gif`,
-      `bg-chair__phone`,
-      `img/chair_black.gif`,
-      `bg-chair__phone`
-    );
-  } else if (ipadMode.matches && transverseMode.matches) {
+  if (phoneMode.matches || (ipadMode.matches && transverseMode.matches)) {
     chairAnimation(
       `img/chair_blue.gif`,
       `bg-chair__phone`,
@@ -124,10 +119,10 @@ function orientatePhone() {
   );
 } */
 
-function handle() {
+function handlechairAnimation() {
   modeChanged();
-  refresh();
+  deviceInitialize();
   //orientatePhone();
 }
 
-export { handle };
+export { handlechairAnimation };

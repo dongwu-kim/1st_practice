@@ -1,3 +1,5 @@
+import { projectorAnimation } from "./projector.js";
+
 const chairImageLow = document.querySelector(".index-main__chair-low"),
   chairImageHigh = document.querySelector(".index-main__chair-high"),
   bodyBgColor = document.querySelector("body");
@@ -24,18 +26,19 @@ function highImgPromise(file, className) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(paintHighImage(file, className));
-    }, 500);
+    }, 50);
   });
 }
 
 function handleHighImageFadeIn() {
-  chairImageLow.classList.add(`fadeout`);
-  chairImageHigh.classList.add(`fadein`);
+  chairImageLow.classList.add(`fadeOut`);
+  chairImageHigh.classList.add(`fadeIn`);
   chairImageHigh.Image;
   bodyColorChange();
 }
 
 async function asyncLoadHighImage(file, className) {
+  projectorAnimation();
   await highImgPromise(file, className);
   handleHighImageFadeIn();
 }
@@ -54,8 +57,8 @@ function remove() {
   chairImageHigh.querySelector(`img`).remove();
   chairImageLow.querySelector(`img`).remove();
   bodyBgColor.classList.remove(`changed`);
-  chairImageLow.classList.remove(`fadeout`);
-  chairImageHigh.classList.remove(`fadein`);
+  chairImageLow.classList.remove(`fadeOut`);
+  chairImageHigh.classList.remove(`fadeIn`);
 }
 
 export { chairAnimation, chairImageHigh, remove };

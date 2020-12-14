@@ -1,50 +1,22 @@
-@keyframes whitetoBlack {
-  from {
-    background-color: white;
-  }
-  to {
-    background-color: black;
-  }
-}
-@keyframes projectorBgAnima {
-  from {
-    background-color: whitesmoke;
-    box-shadow: none;
-  }
-  to {
-    background-color: rgb(243, 237, 237);
-    box-shadow: 1px 1px 20px 10px whitesmoke;
-  }
-}
-@keyframes projectorTextAnima {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .index-main__projector {
   display: flex;
   height: 100vh;
   width: 100vw;
   justify-content: center;
   align-items: center;
-  animation: whitetoBlack 1.5s ease-in-out forwards;
 }
 .index-main__project {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: projectorBgAnima 1.5s ease-in-out forwards;
 }
 
 .index-main__project-btn-img,
 .index-main__project-text-title {
   opacity: 0;
   display: flex;
-  animation: projectorTextAnima 2s ease-in-out 1s forwards;
+
   font-size: 30px;
 }
 @media screen and (max-width: 440px) {
