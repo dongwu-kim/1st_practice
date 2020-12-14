@@ -7,6 +7,7 @@
 @import "chair_anim/tablet_screen.css";
 @import "chair_anim/pc_screen.css";
 
+@import "screens/pc_tablet_screen.css";
 @import "screens/mobile_screen.css";
 
 @import "components/footer-address.css";
