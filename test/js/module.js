@@ -1,8 +1,7 @@
-import { modeChanged } from "./media_width.js";
-import { chairAnimation, chairImageHigh } from "./practice.js";
+import { handle } from "./media_width.js";
 
 function init() {
-  modeChanged();
+  handle();
 }
 
 init();

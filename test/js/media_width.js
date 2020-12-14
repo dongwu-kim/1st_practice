@@ -6,26 +6,6 @@ const phoneMode = window.matchMedia("(max-width: 439.9px)"),
   // ipad
   pcMode = window.matchMedia("(min-width: 768px)");
 // ipad pro + pc
-/*
-function checkBgChanged() {
-  const bodyClassList = JSON.stringify(bodyBgColor.classList);
-
-  if (!bodyClassList.includes(`changed`)) {
-    
-    chairAnimation();
-    console.log(`no`);
-  } else {
-  }
-} */
-
-/*function divInvisible(element) {
-  element.classList.add(`invisible`);
-}
-
-function divVisible(element) {
-  element.classList.remove(`invisible`);
-}
-*/
 
 function handleMode() {
   const ClassList = JSON.stringify(chairImageHigh.classList);
@@ -43,4 +23,17 @@ function modeChanged() {
   /*console.log(pcMode.matches);*/
 }
 
-export { modeChanged };
+function refresh() {
+  if (phoneMode.matches) {
+    return 0;
+  } else {
+    chairAnimation(`img/chair_blue.gif`, `img/chair_black.gif`);
+  }
+}
+
+function handle() {
+  modeChanged();
+  refresh();
+}
+
+export { handle };

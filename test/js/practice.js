@@ -31,7 +31,7 @@ function highImgPromise(file) {
 function handleHighImageFadeIn() {
   chairImageLow.classList.add(`fadeout`);
   chairImageHigh.classList.add(`fadein`);
-  chairImageHigh.classList.remove(`invisible`);
+  chairImageHigh.Image;
   bodyColorChange();
 }
 
