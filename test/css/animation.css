@@ -47,11 +47,11 @@
   animation: bodyToBlack 2s ease-in-out forwards;
 }
 .fadeOut {
-  animation: fadeOut 2s ease-in-out forwards;
+  animation: fadeOut 2.5s ease-in-out forwards;
 }
 
 .fadeIn {
-  animation: fadeIn 2s ease-in-out forwards;
+  animation: fadeIn 2.5s ease-in-out forwards;
 }
 
 /* js animation*/

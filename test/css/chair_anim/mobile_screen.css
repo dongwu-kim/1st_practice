@@ -11,7 +11,7 @@
 
 @media screen and (min-width: 440px) and (max-height: 500px) {
   /* body bgcolor change - chained practice.js */
-  .bg-chair__phone {
+  .phone-chair {
     display: flex;
     position: absolute;
     bottom: 0;

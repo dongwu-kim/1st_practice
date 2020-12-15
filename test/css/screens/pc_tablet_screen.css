@@ -11,8 +11,8 @@
     bottom: 240px;
   }
 
-  .index-main__project-btn-img,
-  .index-main__project-text-title {
+  .index-main__project-btn,
+  .index-main__project-text {
     font-size: 30px;
   }
 }
@@ -25,7 +25,25 @@
   }
   .index-main__project {
     width: 80%;
-    height: 55%;
+    height: 50%;
+    position: absolute;
+    bottom: 240px;
+  }
+
+  .index-main__project-btn,
+  .index-main__project-text {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .index-main__projector {
+    height: 100vh;
+    width: 100vw;
+    animation: none;
+  }
+  .index-main__project {
+    width: 80%;
+    height: 60%;
     position: absolute;
     bottom: 220px;
   }
@@ -35,21 +53,3 @@
     font-size: 30px;
   }
 }
-/*@media screen and (min-width: 1024px) {
-  .index-main__projector {
-    height: 100vh;
-    width: 100vw;
-    animation: none;
-  }
-  .index-main__project {
-    width: 80%;
-    height: 55%;
-    position: absolute;
-    bottom: 220px;
-  }
-
-  .index-main__project-btn-img,
-  .index-main__project-text-title {
-    font-size: 30px;
-  }
-}*/

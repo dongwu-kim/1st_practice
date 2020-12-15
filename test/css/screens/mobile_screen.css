@@ -12,11 +12,10 @@
   align-items: center;
 }
 
-.index-main__project-btn-img,
-.index-main__project-text-title {
+.index-main__project-btn,
+.index-main__project-text {
   opacity: 0;
   display: flex;
-
   font-size: 30px;
 }
 @media screen and (max-width: 440px) {
@@ -29,8 +28,8 @@
     height: 30%;
   }
 
-  .index-main__project-btn-img,
-  .index-main__project-text-title {
+  .index-main__project-btn,
+  .index-main__project-text {
     font-size: 30px;
   }
 }
@@ -48,8 +47,8 @@
     bottom: 120px;
   }
 
-  .index-main__project-btn-img,
-  .index-main__project-text-title {
+  .index-main__project-btn,
+  .index-main__project-text {
     font-size: 30px;
   }
 }

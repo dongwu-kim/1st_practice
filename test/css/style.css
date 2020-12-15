@@ -2,6 +2,7 @@
 @import "reset.css";
 @import "variables.css";
 @import "animation.css";
+@import "divControl.css";
 /*variable things in it like color*/
 
 @import "chair_anim/mobile_screen.css";
@@ -17,7 +18,6 @@
 body {
   height: 100vh;
   width: 100vw;
-  color: #2e363e;
   font-family: "Open Sans", sans-serif;
 }
 

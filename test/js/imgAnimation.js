@@ -1,4 +1,4 @@
-import { projectorAnimation } from "./projector.js";
+import { projectorAnimation, projectorAnimationRemove } from "./projector.js";
 
 const chairImageLow = document.querySelector(".index-main__chair-low"),
   chairImageHigh = document.querySelector(".index-main__chair-high"),
@@ -56,9 +56,28 @@ function chairAnimation(
 function remove() {
   chairImageHigh.querySelector(`img`).remove();
   chairImageLow.querySelector(`img`).remove();
+}
+
+function imgFadeRemove() {
+  projectorAnimationRemove();
   bodyBgColor.classList.remove(`changed`);
   chairImageLow.classList.remove(`fadeOut`);
   chairImageHigh.classList.remove(`fadeIn`);
+  void bodyBgColor.offsetWidth;
 }
 
-export { chairAnimation, chairImageHigh, remove };
+function imgClassRemove() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(imgFadeRemove());
+    }, 100);
+  });
+}
+
+async function fadeChange() {
+  await imgClassRemove();
+  projectorAnimation();
+  handleHighImageFadeIn();
+}
+
+export { chairAnimation, chairImageHigh, remove, fadeChange };

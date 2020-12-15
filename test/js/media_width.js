@@ -1,4 +1,9 @@
-import { chairAnimation, chairImageHigh, remove } from "./imgAnimation.js";
+import {
+  chairAnimation,
+  chairImageHigh,
+  remove,
+  fadeChange,
+} from "./imgAnimation.js";
 
 const phoneMode = window.matchMedia("(max-width: 439.9px)"),
   transverseMode = window.matchMedia("(max-height: 500px)"),
@@ -10,54 +15,42 @@ const phoneMode = window.matchMedia("(max-width: 439.9px)"),
   pcMode = window.matchMedia("(min-width: 1024px)");
 // ipad pro + pc
 
-/*function handleMode() {
-  const ClassList = JSON.stringify(chairImageHigh.classList);
-  if (ClassList.includes(`fadein`)) {
-    console.log(`already changed`);
-    
-  } else {
-    chairAnimation(
-      `img/chair_blue.gif`,
-      `bg-chair`,
-      `img/chair_black.gif`,
-      `bg-chair`
-    );
-  }
-}*/
-/*console.log(phoneMode, tabletMode, ipadMode);
-  console.log(JSON.stringify(bodyBgColor.classList));*/
-
 function handleMode() {
-  if (
-    (tabletMode.matches && ipadMode.matches) ||
-    (ipadMode.matches && pcMode.matches)
-  ) {
+  const imgName = chairImageHigh.querySelector(`img`);
+  if (phoneMode.matches || (ipadMode.matches && transverseMode.matches)) {
     if (chairImageHigh.querySelector(`img`) === null) {
       chairAnimation(
         `img/chair_blue.gif`,
-        `bg-chair`,
+        `phone-chair`,
         `img/chair_black.gif`,
-        `bg-chair`
+        `phone-chair`
       );
-    } else {
-      console.log(tabletMode.matches && ipadMode.matches);
-      console.log(ipadMode.matches && pcMode.matches);
+    } else if (imgName.classList.contains(`pc-chair`)) {
       remove();
       chairAnimation(
         `img/chair_blue.gif`,
-        `bg-chair`,
+        `phone-chair`,
         `img/chair_black.gif`,
-        `bg-chair`
+        `phone-chair`
       );
     }
-  } else if (phoneMode.matches) {
-    remove();
-    chairAnimation(
-      `img/chair_blue.gif`,
-      `bg-chair__phone`,
-      `img/chair_black.gif`,
-      `bg-chair__phone`
-    );
+  } else if (tabletMode.matches || ipadMode.matches || pcMode.matches) {
+    if (chairImageHigh.querySelector(`img`) === null) {
+      chairAnimation(
+        `img/chair_blue.gif`,
+        `pc-chair`,
+        `img/chair_black.gif`,
+        `pc-chair`
+      );
+    } else if (imgName.classList.contains(`phone-chair`)) {
+      remove();
+      chairAnimation(
+        `img/chair_blue.gif`,
+        `pc-chair`,
+        `img/chair_black.gif`,
+        `pc-chair`
+      );
+    }
   }
 }
 
@@ -71,58 +64,42 @@ function deviceInitialize() {
   if (phoneMode.matches || (ipadMode.matches && transverseMode.matches)) {
     chairAnimation(
       `img/chair_blue.gif`,
-      `bg-chair__phone`,
+      `phone-chair`,
       `img/chair_black.gif`,
-      `bg-chair__phone`
+      `phone-chair`
     );
   } else {
     chairAnimation(
       `img/chair_blue.gif`,
-      `bg-chair`,
+      `pc-chair`,
       `img/chair_black.gif`,
-      `bg-chair`
+      `pc-chair`
     );
-  }
-}
-/*
-function handlePhoneModeOrientation() {
-  if (phoneMode.matches) {
-    chairAnimation(
-      `img/chair_blue.gif`,
-      `bg-chair__phone`,
-      `img/chair_black.gif`,
-      `bg-chair__phone`
-    );
-  } else {
-    remove();
-  }
-}
-
-function handleIpadOrientation() {
-  if (ipadMode.matches) {
-    chairAnimation(
-      `img/chair_blue.gif`,
-      `bg-chair`,
-      `img/chair_black.gif`,
-      `bg-chair`
-    );
-  } else {
-    remove();
   }
 }
 
 function orientatePhone() {
-  window.addEventListener(
-    "orientationchange",
-    handlePhoneMode,
-    handleIpadOrientation
-  );
-} */
+  window.addEventListener("orientationchange", fadeChange);
+}
+
+function handleResizeFadeChange() {
+  if (
+    (tabletMode.matches && ipadMode.matches) ||
+    (ipadMode.matches && pcMode.matches)
+  ) {
+    fadeChange();
+  }
+}
+
+function resiezeFadeChange() {
+  window.addEventListener("resize", handleResizeFadeChange);
+}
 
 function handlechairAnimation() {
-  modeChanged();
   deviceInitialize();
-  //orientatePhone();
+  modeChanged();
+  orientatePhone();
+  resiezeFadeChange();
 }
 
 export { handlechairAnimation };
