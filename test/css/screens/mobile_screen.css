@@ -26,6 +26,7 @@
   .index-main__project {
     width: 66%;
     height: 30%;
+    position: absolute;
   }
 
   .index-main__project-btn,

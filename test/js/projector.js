@@ -23,15 +23,19 @@ function projectorAnimationRemove() {
 }
 // export to imgAnimation.js
 
-const slideDom = { project }; // projector slides show checking
-const slideArr = [];
+let slideDom = {}; // projector slides show checking
+let slideArr = [project];
 
-function checkFunction(className) {
-  /*for (var i = 1; i < 4; i++) {
-    slideArr.push(document.querySelector(className + i));
-    
-  }*/
-  console.log(slideArr);
+function generateSlideArr(className) {
+  for (var i = 1; i < 4; i++) {
+    slideArr.push(projectContainer.querySelector(className + i));
+    console.log(slideArr);
+  }
+}
+
+function checkFunction() {
+  generateSlideArr(`.project`);
+  //slideAnimation();
 }
 
 export { projectorAnimation, projectorAnimationRemove, checkFunction };
