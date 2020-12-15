@@ -3,7 +3,7 @@ import { checkFunction } from "./projector.js";
 
 function init() {
   handlechairAnimation();
-  checkFunction();
+  checkFunction(`.project`);
 }
 
 init();

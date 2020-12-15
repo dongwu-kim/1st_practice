@@ -1,5 +1,4 @@
-import { handlechairAnimation } from "./media_width.js";
-import { DOM_check } from "./dom_control.js";
+import { checkDOM } from "./dom_control.js";
 
 const projectContainer = document.querySelector(`.index-main__projector`),
   project = document.querySelector(`.index-main__project`),
@@ -24,11 +23,15 @@ function projectorAnimationRemove() {
 }
 // export to imgAnimation.js
 
-const slideDom = { projectorBtn, projectorTitle }; // projector slides show checking
-const slideArr = [slideDom];
+const slideDom = { project }; // projector slides show checking
+const slideArr = [];
 
-function checkFunction() {
-  DOM_check(slideArr);
+function checkFunction(className) {
+  /*for (var i = 1; i < 4; i++) {
+    slideArr.push(document.querySelector(className + i));
+    
+  }*/
+  console.log(slideArr);
 }
 
 export { projectorAnimation, projectorAnimationRemove, checkFunction };

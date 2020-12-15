@@ -8,8 +8,8 @@ function divVisible(className) {
   div.classlist.add(`visible`);
 }
 
-function DOM_check(arrName) {
+function checkDOM(arrName) {
   console.log(arrName);
 }
 
-export { divInvisible, divVisible, DOM_check };
+export { divInvisible, divVisible, checkDOM };
