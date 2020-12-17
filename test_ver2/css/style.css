@@ -1,0 +1,27 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno&family=Open+Sans:wght@400;600&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap";
+@import "reset.css";
+@import "variables.css";
+
+@import "components/nav.css";
+/*style.css only include font-familly or import files records*/
+html {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+}
+
+body {
+  overflow-x: hidden;
+  color: var(--main-font-color);
+  letter-spacing: -0.02rem;
+  background-color: white;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: var(--main-font-color);
+}
