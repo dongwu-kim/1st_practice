@@ -1,0 +1,158 @@
+.find-icons {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 17px;
+}
+.find-icons__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.find-icons__icon i {
+  font-size: 35px;
+}
+.find-icons__icon span {
+  margin-top: 15px;
+  font-weight: 600;
+}
+.find-icons__icon p {
+  margin-top: 10px;
+  font-weight: 600;
+  text-indent: 1ch;
+}
+.recommended_friends {
+  padding: 15px 0px;
+  border-bottom: var(--light-line-border);
+  border-top: var(--light-line-border);
+}
+.recommended_friends-title {
+  color: var(--main-gray);
+}
+.recommended_friends span {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+  color: var(--main-gray);
+}
+
+.open-chat__header {
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.7;
+  margin: 25px 0px;
+}
+
+.open-chat__header span {
+  color: var(--main-gray);
+}
+
+.open-post {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.open-post__title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.open-post__hashtags {
+  text-transform: uppercase;
+  color: var(--main-gray);
+}
+
+.open-post__members {
+  display: flex;
+  align-items: center;
+}
+
+.open-post__members-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  margin: 10px 5px 10px 0px;
+}
+
+.open-post__members-count {
+  color: var(--main-gray);
+  font-size: 14px;
+}
+
+.open-post__members .divider {
+  width: 1.8px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin: 0 5px;
+}
+
+.open-post__members-status {
+  color: #ffb0e0;
+}
+
+.open-post__photo {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.open-post__photo img {
+  width: 120px;
+  height: 120px;
+}
+
+.open-post__heart-count {
+  width: 100px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--reverse-siam-black);
+  padding: 5px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  font-size: 20px;
+}
+
+.open-post__heart-count-second {
+  width: 50px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--reverse-siam-black);
+  padding: 5px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  font-size: 20px;
+}
+
+@keyframes heartbeat {
+  0% {
+    color: white;
+    transform: none;
+  }
+  50% {
+    color: tomato;
+    transform: scale(1.33);
+  }
+  100% {
+    color: white;
+    transform: none;
+  }
+}
+
+.open-post__heart-count:hover i,
+.open-post__heart-count-second:hover i {
+  will-change: transform;
+  animation: heartbeat 1s linear infinite;
+}

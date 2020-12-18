@@ -1,0 +1,54 @@
+.index-main {
+  display: flex;
+  width: 100vw;
+  height: 180vh;
+  justify-content: space-between;
+}
+.index-main__column:first-child {
+  width: 20vw;
+  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/christmas_left.jpg?raw=true);
+  background-size: 20vw 180vh;
+}
+.index-main__column:last-child {
+  width: 20vw;
+  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/christmas_right.jpg?raw=true);
+  background-size: 20vw 180vh;
+}
+.index-main__column:nth-last-child(2) {
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-image: url(https://github.com/dongwu-kim/dongwu-kim.github.io/blob/master/img/christmas_wood.jpg?raw=true);
+  background-size: 60vw 180vh;
+}
+
+.index-main__project {
+  display: flex;
+  margin-top: 20vh;
+  flex-direction: column;
+  align-items: center;
+}
+
+.index-main__project-btn-img {
+  font-size: 15vw;
+  color: var(--siam-black);
+  margin-bottom: 2vh;
+}
+.index-main__project-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.index-main__project-text-title {
+  margin-bottom: 1vh;
+  font-size: 2.5vw;
+  font-weight: 600;
+  line-height: 6vh;
+}
+
+.index-main__project-text-subtitle {
+  font-size: 1.5vw;
+  font-weight: 600;
+  line-height: 5vh;
+}

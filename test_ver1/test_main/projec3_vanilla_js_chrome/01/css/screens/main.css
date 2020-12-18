@@ -1,0 +1,100 @@
+.main__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__container h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px black;
+}
+
+.js-clock h2 {
+  font-size: 25px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-shadow: 1px 1px 5px black;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 5px black;
+}
+
+.form__container input {
+  font-size: 20px;
+  text-align: center;
+}
+
+.form__container h4 {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.form__btn {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  border: none;
+  outline: none;
+  font-size: 20px;
+}
+
+@keyframes btnlight {
+  from {
+    color: var(--main-color);
+  }
+  to {
+    color: white;
+  }
+}
+
+.form__btn:hover,
+.js-weather:hover,
+.js-toDoList button:hover {
+  animation: btnlight 0.5s ease-in-out forwards;
+}
+
+.todo__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.js-toDoForm {
+  margin-bottom: 10px;
+}
+
+.js-toDoForm input {
+  width: 300px;
+  height: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.js-toDoList li {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.js-toDoList button {
+  margin-right: 15px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  outline: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.js-weather {
+  position: absolute;
+  top: 20px;
+  right: 3%;
+  cursor: pointer;
+}

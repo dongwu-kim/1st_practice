@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
   <head>
     <link
       rel="shortcut icon"
@@ -8,10 +8,10 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kim's Studio</title>
+    <title class="head_title">Kim's Studio</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body class="index-body">
     <div class="index-header">
       <div class="index-header__column">
         <a href="index.html"><i class="fas fa-home fa-xl"></i></a>
@@ -20,46 +20,57 @@
         <a href="index.html"><span>Kim's Studio</span></a>
       </div>
       <div class="index-header__column">
-        <span><i class="fas fa-search fa-xl"></i></span>
+        <span><i class="fas fa-bars fa-xl"></i></span>
       </div>
     </div>
 
-    <main class="index-main">
-      <div class="index-main__column"></div>
-      <div class="index-main__column">
-        <div class="index-main__project">
-          <a href="phone-main.html"
-            ><i class="fas fa-mobile-alt index-main__project-btn-img"></i
-          ></a>
+    <section class="index-main">
+      <div class="index-main__projector">
+        <div class="index-main__project" aria-hidden="false">
+          <div class="index-main__project-btn">
+            <a href="test_main/test_main/phone-main.html"
+              ><i class="fas fa-mobile-alt index-main__project-btn-img"></i>
+            </a>
+          </div>
           <div class="index-main__project-text">
-            <div class="index-main__project-text-title">
-              <span>Phone ver.</span>
-            </div>
-            <!--<div class="index-main__project-text-subtitle">
-              <p>
-                
-              </p>
-            </div>-->
+            <h1>Phone Mode</h1>
           </div>
         </div>
-        <div class="index-main__project">
-          <a href="pc-main.html"
-            ><i class="fas fa-laptop-code index-main__project-btn-img"></i
-          ></a>
+        <div class="index-main__project project1" aria-hidden="true">
+          <div class="index-main__project-btn">
+            <a href="test_main/phone-main.html"
+              ><i class="fas fa-mobile-alt index-main__project-btn-img"></i>
+            </a>
+          </div>
           <div class="index-main__project-text">
-            <div class="index-main__project-text-title">
-              <span>PC ver.</span>
-            </div>
-            <!--<div class="index-main__project-text-subtitle">
-              <p>
-                
-              </p>
-            </div>-->
+            <h1>HTML, CSS</h1>
+          </div>
+        </div>
+        <div class="index-main__project project2" aria-hidden="true">
+          <div class="index-main__project-btn">
+            <a href="test_main/phone-main.html"
+              ><i class="fas fa-mobile-alt index-main__project-btn-img"></i>
+            </a>
+          </div>
+          <div class="index-main__project-text">
+            <h1>only HTML, CSS</h1>
+          </div>
+        </div>
+        <div class="index-main__project project3" aria-hidden="true">
+          <div class="index-main__project-btn">
+            <a href="test_main/phone-main.html"
+              ><i class="fas fa-mobile-alt index-main__project-btn-img"></i>
+            </a>
+          </div>
+          <div class="index-main__project-text">
+            <h1>HTML, CSS, Vanilla</h1>
           </div>
         </div>
       </div>
-      <div class="index-main__column"></div>
-    </main>
+
+      <div class="index-main__chair-low"></div>
+      <div class="index-main__chair-high"></div>
+    </section>
     <!--
       <form action="project1_login.html" method="GET" id="login-form">
       <input
@@ -77,15 +88,24 @@
       <a href="#">Find Kakao Account or Password</a>
     </form>
   -->
-    <footer class="footer-adress">
-      <div class="footer-adress__column">
-        <adress>Phone : 010-8448-7797</adress>
+    <footer class="footer-address">
+      <div class="footer-address__column">
+        <address>
+          Phone : <br />
+          추후공개
+        </address>
       </div>
-      <div class="footer-adress__column">
-        <adress>E-mail : alduk7797@naver.com</adress>
+      <div class="footer-address__column">
+        <address>
+          E-mail : <br />
+          alduk7797@naver.com
+        </address>
       </div>
-      <div class="footer-adress__column">
-        <adress>Adress : 대전광역시 서구 관저동 1619-7 205호</adress>
+      <div class="footer-address__column">
+        <address>
+          Address : <br />
+          추후공개
+        </address>
       </div>
     </footer>
 
@@ -93,5 +113,6 @@
       src="https://kit.fontawesome.com/a107dbe704.js"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="js/module.js"></script>
   </body>
 </html>

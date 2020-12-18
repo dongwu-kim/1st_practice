@@ -1,0 +1,92 @@
+@keyframes whiteToBlack {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: black;
+  }
+}
+@keyframes projectorBgAnima {
+  from {
+    background-color: whitesmoke;
+    box-shadow: none;
+  }
+  to {
+    background-color: rgb(243, 237, 237);
+    box-shadow: 1px 1px 20px 10px whitesmoke;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes bodyToBlack {
+  from {
+    background-color: none;
+  }
+  to {
+    background-color: black;
+  }
+}
+
+.changed {
+  animation: bodyToBlack 2s ease-in-out forwards;
+}
+.fadeOut {
+  animation: fadeOut 2.5s ease-in-out forwards;
+}
+
+.fadeIn {
+  animation: fadeIn 2.5s ease-in-out forwards;
+}
+
+/* js animation*/
+
+.projectBgAnimation {
+  animation: projectorBgAnima 1.5s ease-in-out forwards;
+}
+
+.whiteToBlack {
+  animation: whiteToBlack 1.5s ease-in-out forwards;
+}
+
+/*@keyframes whitetoBlack {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: black;
+  }
+}
+@keyframes projectorBgAnima {
+  from {
+    background-color: whitesmoke;
+    box-shadow: none;
+  }
+  to {
+    background-color: rgb(243, 237, 237);
+    box-shadow: 1px 1px 20px 10px whitesmoke;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}*/

@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno&family=Open+Sans:wght@400;600&display=swap");
+@import "reset.css";
+@import "variables.css";
+/*variable things in it like color*/
+@import "screens/index-main.css";
+@import "screens/phone-main.css";
+@import "screens/pc-main.css";
+/* screens include main things of page*/
+@import "components/index_header.css";
+@import "components/footer-adress.css";
+/*components include like statusbar that could observed in pages*/
+body {
+  color: #2e363e;
+  font-family: "Open Sans", sans-serif;
+}
+
+.main-screen {
+  padding: 0px var(--horizontal-space);
+}
+
+.space__box {
+  height: 120px;
+}
+
+.opacity_zero {
+  opacity: 0;
+}
+/*style.css only include font-familly or import files records*/
