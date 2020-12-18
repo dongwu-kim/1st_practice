@@ -1,0 +1,118 @@
+.scroll-section {
+  padding-top: 50vh;
+}
+/*container*/
+
+.scroll-section h1:first-child {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.section0 .main__message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  font-size: 2.5rem;
+  margin-top: 5px;
+}
+
+.main__message p {
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+}
+/*section0*/
+
+.section1__description {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: #888888;
+  padding: 0 1rem;
+}
+
+.section1__description strong {
+  float: left;
+  font-size: 3rem;
+  margin-right: 0.2em;
+}
+/*section1*/
+
+.section2 small {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
+}
+.section2 .main__message {
+  font-size: 3.5rem;
+}
+
+.desc__message {
+  width: 50%;
+  font-weight: bold;
+}
+
+.pin {
+  width: 1px;
+  height: 100px;
+  background-color: var(--main-font-color);
+}
+/*section2*/
+
+.section3 .mid__message {
+  padding: 0 1rem;
+  font-size: 2rem;
+  color: #888888;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.canvas__caption {
+  color: #888888;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+/*section3*/
+
+@media screen and (min-width: 1024px) {
+  /*desktop display*/
+  .scroll-section h1:first-child {
+    font-size: 9vw;
+  }
+  .section0 .main__message {
+    font-size: 4vw;
+  }
+  /*section0*/
+  .section1__description {
+    font-size: 2rem;
+    color: #888888;
+  }
+
+  .section1__description strong {
+    font-size: 6rem;
+  }
+  /*section1*/
+  .section2 small {
+    font-size: 2vw;
+  }
+
+  .section2 .main__message {
+    font-size: 6vw;
+  }
+
+  .desc__message {
+    width: 20%;
+  }
+  /*section2*/
+  .section3 .mid__message {
+    font-size: 4vw;
+  }
+
+  .canvas__caption {
+    font-size: 2rem;
+  }
+  /*section3*/
+}

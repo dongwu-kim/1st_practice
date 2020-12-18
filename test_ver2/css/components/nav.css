@@ -1,8 +1,10 @@
 .global-nav {
   height: 44px;
+  padding: 0 1rem;
 }
 .local-nav {
-  height: 52px;
+  height: 51px;
+  padding: 0 1rem;
   border-bottom: 1px solid lightgrey;
 }
 .global-nav__links,
