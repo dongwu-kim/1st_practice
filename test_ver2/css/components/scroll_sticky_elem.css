@@ -1,0 +1,15 @@
+.section0 .sticky__elem,
+.sticky__elem {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#js-scene0 .section0 .sticky__elem,
+#js-scene1 .section1 .sticky__elem,
+#js-scene2 .section2 .sticky__elem,
+#js-scene3 .section3 .sticky__elem {
+  display: block;
+}

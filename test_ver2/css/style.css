@@ -4,7 +4,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap");
 
 @import "components/nav.css";
-@import "components/scroll-section.css";
+@import "components/scroll_section.css";
+@import "components/scroll_sticky_elem.css";
 @import "components/footer.css";
 /*style.css only include font-familly or import files records*/
 html {
