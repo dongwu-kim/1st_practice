@@ -1,8 +1,19 @@
+.global-nav,
+.local-nav {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .global-nav {
+  top: 0;
+  left: 0;
   height: 44px;
   padding: 0 1rem;
 }
 .local-nav {
+  top: 45px;
+  left: 0;
   height: 51px;
   padding: 0 1rem;
   border-bottom: 1px solid lightgrey;
