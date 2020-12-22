@@ -1,7 +1,8 @@
 (() => {
   let yOffset = 0,
     prevScrollHeight = 0,
-    currentScene = 0;
+    currentScene = 0,
+    enterNewScene = true;
   const sceneInfo = [
     {
       //0
@@ -16,7 +17,9 @@
         messageD: document.querySelector(`.section0-main__message--d`),
       },
       values: {
-        messageA_opacity: [0, 1],
+        messageA_fade_in: [0, 1, { start: 0.1, end: 0.2 }],
+        messageA_fade_out: [1, 0, { start: 0.25, end: 0.3 }],
+        messageB_fade_in: [0, 1, { start: 0.3, end: 0.4 }],
       },
     },
 
@@ -53,19 +56,49 @@
 
   function calcValues(values, currentYOffset) {
     let rv;
-    let scrollRatio = currentYOffset / sceneInfo[currentScene].scrollHeight;
-    rv = scrollRatio * (values[1] - values[0]) + values[0];
+    const scrollRatio = currentYOffset / sceneInfo[currentScene].scrollHeight;
+    const scrollHeight = sceneInfo[currentScene].scrollHeight;
+    if (values.length === 3) {
+      const partScrollStart = values[2].start * scrollHeight;
+      const partScrollEnd = values[2].end * scrollHeight;
+      const partScrollHeight = partScrollEnd - partScrollStart;
+
+      if (currentYOffset >= partScrollStart && currentYOffset <= partScrollEnd) {
+        rv =
+          ((currentYOffset - partScrollStart) / partScrollHeight) * (values[1] - values[0]) +
+          values[0];
+        console.log(rv);
+      } else if (currentYOffset < partScrollStart) {
+        rv = values[0];
+      } else if (currentYOffset > partScrollEnd) {
+        rv = values[1];
+      }
+    } else {
+      rv = scrollRatio * (values[1] - values[0]) + values[0];
+    }
+
     return rv;
   }
 
   function playAnimation() {
     const objs = sceneInfo[currentScene].objs,
       values = sceneInfo[currentScene].values,
-      currentYOffset = yOffset - prevScrollHeight;
+      currentYOffset = yOffset - prevScrollHeight,
+      scrollHeight = sceneInfo[currentScene].scrollHeight,
+      scrollRatio = currentYOffset / scrollHeight;
+
     switch (currentScene) {
       case 0:
-        let messageA_fade_in = calcValues(values.messageA_opacity, currentYOffset);
-        objs.messageA.style.opacity = messageA_fade_in;
+        const messageA_fade_in = calcValues(values.messageA_fade_in, currentYOffset);
+        const messageA_fade_out = calcValues(values.messageA_fade_out, currentYOffset);
+        if (scrollRatio <= 0.22) {
+          objs.messageA.style.opacity = messageA_fade_in;
+        } else {
+          objs.messageA.style.opacity = messageA_fade_out;
+        }
+        console.log(currentYOffset);
+        console.log(calcValues(values.messageA_fade_out, currentYOffset));
+
         break;
       case 1:
         break;
@@ -94,19 +127,24 @@
   }
 
   function scrollLoop() {
+    enterNewScene = false;
     prevScrollHeight = 0;
     for (let i = 0; i < currentScene; i++) {
       prevScrollHeight += sceneInfo[i].scrollHeight;
     }
 
     if (yOffset > prevScrollHeight + sceneInfo[currentScene].scrollHeight) {
+      enterNewScene = true;
       currentScene++;
     }
 
     if (yOffset < prevScrollHeight) {
       if (currentScene === 0) return;
+      enterNewScene = true;
       currentScene--;
     }
+
+    if (enterNewScene) return;
 
     document.body.setAttribute(`id`, `js-scene${currentScene}`);
 

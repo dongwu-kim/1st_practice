@@ -17,6 +17,7 @@
   font-size: 2.5rem;
   margin-top: 5px;
   opacity: 0;
+  top: 35vh;
 }
 
 .main__message p {
