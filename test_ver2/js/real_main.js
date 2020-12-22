@@ -19,6 +19,8 @@
       values: {
         messageA_fade_in: [0, 1, { start: 0.1, end: 0.2 }],
         messageA_fade_out: [1, 0, { start: 0.25, end: 0.3 }],
+        messageA_translateY_in: [20, 0, { start: 0.1, end: 0.2 }],
+        messageA_translateY_out: [0, -20, { start: 0.25, end: 0.3 }],
         messageB_fade_in: [0, 1, { start: 0.3, end: 0.4 }],
       },
     },
@@ -67,11 +69,12 @@
         rv =
           ((currentYOffset - partScrollStart) / partScrollHeight) * (values[1] - values[0]) +
           values[0];
+        // [{partScrollRatio(현재 - 초기값) / (종결값 - 초기값)} * (애니메이션 변수 종결값 - 초기값)] + 초기값
         console.log(rv);
       } else if (currentYOffset < partScrollStart) {
-        rv = values[0];
+        rv = values[0]; //before
       } else if (currentYOffset > partScrollEnd) {
-        rv = values[1];
+        rv = values[1]; //forwards
       }
     } else {
       rv = scrollRatio * (values[1] - values[0]) + values[0];
@@ -91,10 +94,14 @@
       case 0:
         const messageA_fade_in = calcValues(values.messageA_fade_in, currentYOffset);
         const messageA_fade_out = calcValues(values.messageA_fade_out, currentYOffset);
+        const messageA_translateY_in = calcValues(values.messageA_translateY_in, currentYOffset);
+        const messageA_translateY_out = calcValues(values.messageA_translateY_out, currentYOffset);
         if (scrollRatio <= 0.22) {
           objs.messageA.style.opacity = messageA_fade_in;
+          objs.messageA.style.transform = `translateY(${messageA_translateY_in}%)`;
         } else {
           objs.messageA.style.opacity = messageA_fade_out;
+          objs.messageA.style.transform = `translateY(${messageA_translateY_out}%)`;
         }
         console.log(currentYOffset);
         console.log(calcValues(values.messageA_fade_out, currentYOffset));
