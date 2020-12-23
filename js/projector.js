@@ -55,7 +55,7 @@ function projectorInit() {
   const setDelay = (ms) => new Promise((res) => setTimeout(res, ms));
 
   async function slideControl() {
-    await setDelay(3000);
+    await setDelay(2000);
     const firstProject = document.querySelector(`.project0`);
     firstProject.style.display = `none`;
     firstProject.classList.add(`fadeOut`);
