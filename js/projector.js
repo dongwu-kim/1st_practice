@@ -1,5 +1,3 @@
-import { checkDOM } from "./dom_control.js";
-
 const projectContainer = document.querySelector(`.index-main__projector`),
   project = document.querySelector(`.index-main__project`),
   projectorBtn = project.querySelector(`.index-main__project-btn`),
@@ -22,20 +20,67 @@ function projectorAnimationRemove() {
   }
 }
 // export to imgAnimation.js
+function projectorInit() {
+  const projector = [
+    {
+      container: {
+        project: document.querySelector(`.project1`),
+        btn: document.querySelector(`.project1-btn`),
+        text: document.querySelector(`.project1-text`),
+      },
+    },
+    {
+      container: {
+        project: document.querySelector(`.project2`),
+        btn: document.querySelector(`.project2-btn`),
+        text: document.querySelector(`.project2-text`),
+      },
+    },
+    {
+      container: {
+        project: document.querySelector(`.project3`),
+        btn: document.querySelector(`.project3-btn`),
+        text: document.querySelector(`.project3-text`),
+      },
+    },
+    {
+      container: {
+        project: document.querySelector(`.project4`),
+        btn: document.querySelector(`.project4-btn`),
+        text: document.querySelector(`.project4-text`),
+      },
+    },
+  ];
 
-let slideDom = {}; // projector slides show checking
-let slideArr = [project];
+  const setDelay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-function generateSlideArr(className) {
-  for (var i = 1; i < 4; i++) {
-    slideArr.push(projectContainer.querySelector(className + i));
-    console.log(slideArr);
+  async function slideControl() {
+    await setDelay(3000);
+    const firstProject = document.querySelector(`.project0`);
+    firstProject.style.display = `none`;
+    firstProject.classList.add(`fadeOut`);
+
+    for (let i = 0; i <= projector.length; i++) {
+      if (i === projector.length) {
+        i = 0;
+        projector[projector.length - 1].container.project.style.display = `none`;
+      }
+      if (i > 0) {
+        projector[i - 1].container.project.style.display = `none`;
+        //projector[i - 1].container.project.classList.remove(`fadeIn`);
+      }
+      /*if (i === projector.length) {
+        project[i].container.project.setAttribute(`aria-hidden`, true);
+      }*/
+      projector[i].container.project.style.display = `flex`;
+      projector[i].container.project.style.opacity = 1;
+      projector[i].container.btn.style.opacity = 1;
+      projector[i].container.text.style.opacity = 1;
+      //projector[i].container.project.classList.add(`fadeIn`);
+      await setDelay(5000);
+    }
   }
+  slideControl();
 }
 
-function checkFunction() {
-  generateSlideArr(`.project`);
-  //slideAnimation();
-}
-
-export { projectorAnimation, projectorAnimationRemove, checkFunction };
+export { projectorAnimation, projectorAnimationRemove, projectorInit };

@@ -2,18 +2,12 @@
   .index-main__projector {
     height: 100vh;
     width: 100vw;
-    animation: none;
   }
   .index-main__project {
     width: 80%;
     height: 45%;
     position: absolute;
-    bottom: 240px;
-  }
-
-  .index-main__project-btn,
-  .index-main__project-text {
-    font-size: 30px;
+    top: 20vh;
   }
 }
 
@@ -21,35 +15,49 @@
   .index-main__projector {
     height: 100vh;
     width: 100vw;
-    animation: none;
   }
   .index-main__project {
     width: 80%;
     height: 50%;
     position: absolute;
-    bottom: 240px;
-  }
-
-  .index-main__project-btn,
-  .index-main__project-text {
-    font-size: 30px;
+    top: 15vh;
   }
 }
 @media screen and (min-width: 1024px) {
   .index-main__projector {
     height: 100vh;
     width: 100vw;
-    animation: none;
   }
   .index-main__project {
     width: 80%;
     height: 60%;
     position: absolute;
-    bottom: 220px;
+    top: 10vh;
   }
+}
 
-  .index-main__project-btn-img,
-  .index-main__project-text-title {
-    font-size: 30px;
+@media screen and (min-width: 1200px) and (min-height: 1024px) {
+  .index-main__projector {
+    height: 100vh;
+    width: 100vw;
+  }
+  .index-main__project {
+    width: 80%;
+    height: 60%;
+    position: absolute;
+    top: 15vh;
+  }
+}
+
+@media screen and (min-height: 1200px) {
+  .index-main__projector {
+    height: 100vh;
+    width: 100vw;
+  }
+  .index-main__project {
+    width: 80%;
+    height: 65%;
+    position: absolute;
+    top: 13vh;
   }
 }

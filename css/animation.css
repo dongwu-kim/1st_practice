@@ -43,6 +43,24 @@
   }
 }
 
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .changed {
   animation: bodyToBlack 2s ease-in-out forwards;
 }
@@ -63,7 +81,12 @@
 .whiteToBlack {
   animation: whiteToBlack 1.5s ease-in-out forwards;
 }
-
+.slideFadeIn {
+  animation: slideFadeIn 0s forwards;
+}
+.slideFadeOut {
+  animation: slideFadeOut 0s forwards;
+}
 /*@keyframes whitetoBlack {
   from {
     background-color: white;

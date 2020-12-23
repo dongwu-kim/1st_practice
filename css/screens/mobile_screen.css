@@ -10,13 +10,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 99;
 }
 
 .index-main__project-btn,
 .index-main__project-text {
   opacity: 0;
   display: flex;
-  font-size: 30px;
+  font-size: 5vw;
+  margin-bottom: 2vh;
+}
+
+.project1,
+.project2,
+.project3,
+.project4 {
+  display: none;
+  background-color: rgb(243, 237, 237);
+  box-shadow: 1px 1px 20px 10px whitesmoke;
 }
 @media screen and (max-width: 440px) {
   .index-main__projector {
@@ -27,11 +38,6 @@
     width: 66%;
     height: 30%;
     position: absolute;
-  }
-
-  .index-main__project-btn,
-  .index-main__project-text {
-    font-size: 30px;
   }
 }
 /*mobile mode*/
@@ -46,11 +52,6 @@
     height: 55%;
     position: absolute;
     bottom: 120px;
-  }
-
-  .index-main__project-btn,
-  .index-main__project-text {
-    font-size: 30px;
   }
 }
 /*transverse mode*/
