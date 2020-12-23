@@ -48,12 +48,23 @@
   margin-bottom: 0.5em;
 }
 .section2 .main__message {
+  top: 35vh;
   font-size: 3.5rem;
 }
 
-.desc__message {
-  width: 50%;
+.section2 .desc__message {
+  width: 45%;
   font-weight: bold;
+}
+
+.section2 .section2-desc__message--a {
+  top: 10%;
+  left: 40%;
+}
+
+.section2 .section2-desc__message--b {
+  top: 15%;
+  left: 45%;
 }
 
 .pin {
@@ -109,6 +120,16 @@
   .desc__message {
     width: 20%;
   }
+
+  .section2-desc__message--a {
+    top: 20%;
+    left: 53%;
+  }
+
+  .section2-desc__message--b {
+    left: 55%;
+  }
+
   /*section2*/
   .section3 .mid__message {
     font-size: 4vw;
