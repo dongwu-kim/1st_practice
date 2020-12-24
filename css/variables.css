@@ -5,4 +5,7 @@
   --reverse-siam-black: rgb(253, 248, 241);
   --light-line-border: 1px solid rgba(0, 0, 0, 0.2);
   --main-gray: rgba(0, 0, 0, 0.5);
+  --modal-bgColor: #485460;
+  --modal-project-bgColor: #808e9b;
+  --modal-boder-line: rgba(247, 247, 238);
 }

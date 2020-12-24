@@ -1,5 +1,6 @@
 .index-header {
   width: 100vw;
+  height: 6vh;
   display: flex;
   position: fixed;
   top: 0px;

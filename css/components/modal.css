@@ -1,0 +1,54 @@
+.header-modal {
+  display: none;
+  flex-direction: column;
+  width: 38.5vw;
+  height: auto;
+  top: 6vh;
+  right: 0;
+  box-sizing: border-box;
+  background-color: var(--modal-bgColor);
+  position: fixed;
+  z-index: 2;
+  color: var(--modal-project-bgColor);
+  border: 1px solid var(--modal-boder-line);
+  padding: 0 2vw 0 2vw;
+}
+
+.header-modal__container {
+  display: flex;
+  flex-direction: column;
+  font-size: 3vw;
+}
+
+.header-modal__btn {
+  padding: 0;
+  background-color: var(--modal-bgColor);
+  color: var(--modal-project-bgColor);
+  border: none;
+  outline: none;
+  font-size: 3vw;
+  text-align: start;
+  margin-top: 0.5vh;
+  border-bottom: 1px solid var(--modal-boder-line);
+}
+
+@keyframes modalHover {
+  from {
+    background-color: var(--modal-bgColor);
+    color: var(--modal-project-bgColor);
+  }
+  to {
+    background-color: var(--modal-project-bgColor);
+    color: var(--modal-bgColor);
+  }
+}
+
+.header-modal__btn:hover {
+  animation: modalHover 0.35s ease-in-out forwards;
+}
+
+.header-modal__text {
+  display: none;
+  flex-direction: column;
+  margin-bottom: 1vh;
+}
