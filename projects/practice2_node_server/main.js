@@ -15,7 +15,7 @@ var app = http.createServer((request, response) => {
     return response.writeHead(404);
   }
   response.writeHead(200);
-  fs.readFile(`data/${title}`, `utf-8`, (err, description) => {
+  fs.readFile(`data/${title}`, `utf8`, (err, description) => {
     var template = `
     <!DOCTYPE html>
     <html>
