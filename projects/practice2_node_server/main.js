@@ -1,42 +1,29 @@
 const http = require("http"),
   fs = require("fs"),
-  url = require("url"),
-  app = http.createServer((request, response) => {
-    const _url = request.url,
-      queryData = url.parse(_url, true).query,
-      pathName = url.parse(_url, true).pathname;
+  url = require("url");
 
-    console.log(url.parse(_url, true));
+function createList(fileList) {
+  let list = `<ol>`;
 
-    if (pathName === `/`) {
-      fs.readdir(`./data`, (err, fileList) => {
-        let list = `<ol>`;
+  for (let i = 0; i < fileList.length; i++) {
+    let splitfileList = fileList[i].split(`_`);
+    splitfileList = splitfileList[1]; // original file name ex): 1_HTML
+    list = list + `<li><a href = "?id=${fileList[i]}"/>${splitfileList}</a></li>`;
+  }
 
-        for (let i = 0; i < fileList.length; i++) {
-          let splitfileList = fileList[i].split(`_`);
-          splitfileList = splitfileList[1]; // 0 = id or sort num, 1 = file name
-          console.log(fileList[i]);
-          console.log(splitfileList);
-          list = list + `<li><a href = "?id=${fileList[i]}"/>${splitfileList}</a></li>`;
-        }
+  list = list + `</ol>`;
 
-        list = list + `</ol>`;
+  return list;
+}
 
-        if (queryData.id !== undefined) {
-          /* let list = `<ol>
-          <li><a href="?id=HTML">HTML</a></li>
-          <li><a href="?id=CSS">CSS</a></li>
-          <li><a href="?id=JS">JavaScript</a></li>
-          </ol>`; */
-
-          fs.readFile(`./data/${queryData.id}`, `utf8`, (err, description) => {
-            const title = queryData.id;
-            const template = `
+function templateHTML(title, list, description) {
+  return `
             <!DOCTYPE html>
             <html>
               <head>
                 <title>WEB1 - ${title}</title>
                 <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
               </head>
               <body>
                 <h1><a href="/">WEB</a></h1>
@@ -48,37 +35,40 @@ const http = require("http"),
               </body>
             </html>
             `;
-            response.writeHead(200);
-            response.end(template);
-          });
-        } else {
-          const title = `Welcome`;
-          const description = `Hi, Node.js`;
-          const template = `
-          <!DOCTYPE html>
-          <html>
-            <head>
-              <title>WEB1 - ${title}</title>
-              <meta charset="utf-8" />
-            </head>
-            <body>
-              <h1><a href="/">WEB</a></h1>
-              ${list}
-              <h2>${title}</h2>
-              <p style="margin-top: 45px">
-                ${description}
-              </p>
-            </body>
-          </html>
-          `;
+}
+
+const app = http.createServer((request, response) => {
+  const _url = request.url,
+    queryData = url.parse(_url, true).query,
+    pathName = url.parse(_url, true).pathname;
+
+  if (pathName === `/`) {
+    let title,
+      template,
+      index_description = ``;
+
+    fs.readdir(`./data`, (err, fileList) => {
+      const list = createList(fileList);
+
+      if (queryData.id !== undefined) {
+        fs.readFile(`./data/${queryData.id}`, `utf8`, (err, description) => {
+          title = queryData.id;
+          template = templateHTML(title, list, description);
           response.writeHead(200);
           response.end(template);
-        }
-      });
-    } else {
-      response.writeHead(404);
-      response.end(`Not found`);
-    }
-  });
+        });
+      } else {
+        title = `Welcome`;
+        index_description = `Hi, Node.js`;
+        template = templateHTML(title, list, index_description);
+        response.writeHead(200);
+        response.end(template);
+      }
+    });
+  } else {
+    response.writeHead(404);
+    response.end(`Sry, We can't found URI`);
+  }
+});
 
-app.listen(3002);
+app.listen(3001);
