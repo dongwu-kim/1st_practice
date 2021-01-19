@@ -1,14 +1,26 @@
+const { create } = require("domain");
 const http = require("http"),
   fs = require("fs"),
-  url = require("url");
+  url = require("url"),
+  qs = require("querystring");
 
-function createList(fileList) {
+function createObj(fileList, description) {
+  let dataObj = { comment: [] };
+  for (let i = 0; i < fileList.length; i++) {
+    let fileName = fileList[i].split(`_`);
+    fileName = fileName[1];
+    dataObj.comment.push({ id: i, title: fileName, desc: description, origin: fileList[i] });
+  }
+  return dataObj;
+}
+
+function createHTMLList(dataObj) {
   let list = `<ol>`;
 
-  for (let i = 0; i < fileList.length; i++) {
-    let splitfileList = fileList[i].split(`_`);
-    splitfileList = splitfileList[1]; // original file name ex): 1_HTML
-    list = list + `<li><a href = "?id=${fileList[i]}"/>${splitfileList}</a></li>`;
+  for (let i = 0; i < dataObj.length; i++) {
+    let title = dataObj.comment[i].title;
+    let id = dataObj.comment[i].origin;
+    list = list + `<li><a href = "?id=${id}"/>${title}</a></li>`;
   }
 
   list = list + `</ol>`;
@@ -16,7 +28,7 @@ function createList(fileList) {
   return list;
 }
 
-function templateHTML(title, list, description) {
+function templateHTML(title, description, list) {
   return `
             <!DOCTYPE html>
             <html>
@@ -28,10 +40,11 @@ function templateHTML(title, list, description) {
               <body>
                 <h1><a href="/">WEB</a></h1>
                 ${list}
+                <a href = "/crud">Create sth</a>
                 <h2>${title}</h2>
-                <p style="margin-top: 45px">
+                <div style="margin-top: 45px">
                   ${description}
-                </p>
+                </div>
               </body>
             </html>
             `;
@@ -41,28 +54,90 @@ const app = http.createServer((request, response) => {
   const _url = request.url,
     queryData = url.parse(_url, true).query,
     pathName = url.parse(_url, true).pathname;
+  let template = ``;
+  console.log(queryData);
 
   if (pathName === `/`) {
-    let title,
-      template,
-      index_description = ``;
-
     fs.readdir(`./data`, (err, fileList) => {
-      const list = createList(fileList);
+      fs.readFile(`./data/${queryData.id}`, `utf8`, (err, description) => {
+        let dataObj = [];
+        createObj(fileList, description);
+        let list = createHTMLList(dataObj);
 
-      if (queryData.id !== undefined) {
-        fs.readFile(`./data/${queryData.id}`, `utf8`, (err, description) => {
-          title = queryData.id;
-          template = templateHTML(title, list, description);
+        if (queryData.id !== undefined) {
+          template = templateHTML(dataObj, list);
           response.writeHead(200);
           response.end(template);
-        });
-      } else {
-        title = `Welcome`;
-        index_description = `Hi, Node.js`;
-        template = templateHTML(title, list, index_description);
+        } else {
+          let indexDataObj = [
+            { id: 0, title: `Welcome`, description: `Hi, Node Js`, origin: `none` },
+          ];
+          template = templateHTML(indexDataObj, list);
+          response.writeHead(200);
+          response.end(template);
+        }
+      });
+    });
+  } else if (pathName === `/crud`) {
+    fs.readdir(`./data`, (err, fileList) => {
+      fs.readFile(`./data/${queryData.id}`, `utf8`, (err, description) => {
+        let dataObj = createObj(fileList, description);
+        let list = createHTMLList(dataObj);
+        let crudObj = [
+          {
+            id: 0,
+            title: `Welcome`,
+            description: `
+      <form action="http://localhost:3001/process_crud" method="post">
+        <p><input type="text" name="title" placeholder="Lang" /></p>
+        <p>
+          <textarea
+            name="description"
+            cols="50"
+            rows="10"
+            placeholder="사용평을 작성해주시겠어요?"
+          ></textarea>
+        </p>
+        <input type="submit" />
+      </form>
+      <form action="http://localhost:3001/process_crud" method="post">
+        <button type="submit">Like</button>
+        <button type="submit">Dislike</button>
+      </form>
+    `,
+            origin: `none`,
+          },
+        ];
+        template = templateHTML(crudObj, list);
         response.writeHead(200);
         response.end(template);
+      });
+    });
+  } else if (pathName === `/process_crud`) {
+    let body = ``;
+    request.on(`data`, (data) => {
+      body = body + data;
+    });
+    request.on(`end`, () => {
+      let post = qs.parse(body);
+      title = post.title;
+      description = post.description;
+      // let date = Date.now();
+
+      if (title === undefined) {
+        response.writeHead(302, { Location: `/crud}` });
+        response.end();
+      } else {
+        fs.readdir(`./data`, (err, fileList) => {
+          let num = fileList.length + 1;
+
+          let fileName = num + `_` + title;
+
+          fs.writeFile(`./data/${fileName}`, description, `utf8`, (err) => {
+            response.writeHead(302, { Location: `/?id=${qs.escape(fileName)}` });
+            response.end();
+          });
+        });
       }
     });
   } else {
