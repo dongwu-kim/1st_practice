@@ -4,22 +4,23 @@ const http = require("http"),
   url = require("url"),
   qs = require("querystring");
 
-function createObj(fileList, description) {
-  let dataObj = { comment: [] };
+function createObj(arr, fileList, description) {
+  let obj = [{ listPage: [] }];
   for (let i = 0; i < fileList.length; i++) {
     let fileName = fileList[i].split(`_`);
     fileName = fileName[1];
-    dataObj.comment.push([{ id: i, title: fileName, desc: description, origin: fileList[i] }]);
+    obj.listPage.push({ id: i, title: fileName, desc: description, origin: fileList[i] });
   }
-  return dataObj;
+  arr.concat(obj);
+  return arr;
 }
 
-function createHTMLList(dataObj) {
+function createHTMLList(arr) {
   let list = `<ol>`;
 
-  for (let i = 0; i < dataObj.length; i++) {
-    let title = dataObj.comment[i].title;
-    let id = dataObj.comment[i].origin;
+  for (let i = 0; i < arr.listPage.length; i++) {
+    let title = arr.listPage[i].title;
+    let id = arr.listPage[i].origin;
     list = list + `<li><a href = "?id=${id}"/>${title}</a></li>`;
   }
 
@@ -54,25 +55,38 @@ const app = http.createServer((request, response) => {
   const _url = request.url,
     queryData = url.parse(_url, true).query,
     pathName = url.parse(_url, true).pathname;
+
+  let dataObj = [
+    {
+      initPage: [
+        {
+          id: 0,
+          title: `Welcome`,
+          description: `Hi, Node Js`,
+          origin: `none`,
+        },
+      ],
+    },
+  ];
+  let list = ``;
   let template = ``;
-  console.log(queryData);
 
   if (pathName === `/`) {
     fs.readdir(`./data`, (err, fileList) => {
       fs.readFile(`./data/${queryData.id}`, `utf8`, (err, description) => {
-        let dataObj = [];
+        dataObj = createObj(dataObj, fileList, description);
+        list = createHTMLList(dataObj);
+        console.log(dataObj.listPage[0].title);
+        console.log(list);
 
         if (queryData.id !== undefined) {
-          createObj(fileList, description);
-          let list = createHTMLList(dataObj);
-          template = templateHTML(dataObj, list);
+          template = templateHTML(dataObj.listPage[0].title, description, list);
           response.writeHead(200);
           response.end(template);
         } else {
-          let indexDataObj = [
-            { id: 0, title: `Welcome`, description: `Hi, Node Js`, origin: `none` },
-          ];
-          template = templateHTML(indexDataObj, list);
+          let title = dataObj.initPage.title;
+          let description = dataObj.initPage.description;
+          template = templateHTML(title, description, list);
           response.writeHead(200);
           response.end(template);
         }
