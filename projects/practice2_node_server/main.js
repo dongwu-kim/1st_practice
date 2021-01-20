@@ -9,7 +9,7 @@ function createObj(fileList, description) {
   for (let i = 0; i < fileList.length; i++) {
     let fileName = fileList[i].split(`_`);
     fileName = fileName[1];
-    dataObj.comment.push({ id: i, title: fileName, desc: description, origin: fileList[i] });
+    dataObj.comment.push([{ id: i, title: fileName, desc: description, origin: fileList[i] }]);
   }
   return dataObj;
 }
@@ -61,10 +61,10 @@ const app = http.createServer((request, response) => {
     fs.readdir(`./data`, (err, fileList) => {
       fs.readFile(`./data/${queryData.id}`, `utf8`, (err, description) => {
         let dataObj = [];
-        createObj(fileList, description);
-        let list = createHTMLList(dataObj);
 
         if (queryData.id !== undefined) {
+          createObj(fileList, description);
+          let list = createHTMLList(dataObj);
           template = templateHTML(dataObj, list);
           response.writeHead(200);
           response.end(template);
