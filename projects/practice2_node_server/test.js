@@ -46,7 +46,7 @@ function createInitData(fileList) {
 
 function createTemplate(dataObj, title, description, page) {
   dataObj.listPage.description = description;
-  if (page === dataObj.indexPage) {
+  if (page === `index`) {
     return `
   <!DOCTYPE html>
       <html>
@@ -66,7 +66,7 @@ function createTemplate(dataObj, title, description, page) {
           </body>
       </html>     
       `;
-  } else if (page === dataObj.listPage) {
+  } else if (page === `list`) {
     return `
     <!DOCTYPE html>
         <html>
@@ -127,16 +127,16 @@ const app = http.createServer((request, response) => {
         console.log(pathName);
         console.log(title);
         if (title === undefined) {
-          template = createTemplate(data, fileList, title, description, data.indexPage);
+          template = createTemplate(data, fileList, title, description, `index`);
           response.writeHead(200);
           response.end(template);
         } else {
-          template = createTemplate(data, fileList, title, description, data.listPage);
+          template = createTemplate(data, fileList, title, description, `list`);
           response.writeHead(200);
           response.end(template);
         }
       } else if (pathName === `/crud`) {
-        template = createTemplate(data, fileList, title, description, data.createPage);
+        template = createTemplate(data, fileList, title, description, `crud`);
         response.writeHead(200);
         response.end(template);
       }
