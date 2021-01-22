@@ -11,7 +11,7 @@ function createInitData(fileList) {
 
   for (let i = 0; i < fileList.length; i++) {
     let fileName = fileList[i].split(`_`); // fileList[i] = string, fileName = array
-    list = list + `<li><a href = "?id=${fileName[1]}">${fileName[1]}</a></li>`;
+    list = list + `<li><a href = "?id=${fileList[i]}">${fileName[1]}</a></li>`;
   }
 
   list = list + `</ol>`;
@@ -45,7 +45,6 @@ function createInitData(fileList) {
 }
 
 function createTemplate(dataObj, title, description, page) {
-  dataObj.listPage.description = description;
   if (page === `index`) {
     return `
   <!DOCTYPE html>
@@ -79,9 +78,9 @@ function createTemplate(dataObj, title, description, page) {
                 <h1><a href="/">WEB</a></h1>
                 ${dataObj.listPage.list}
                 <a href = "/crud">Create sth</a>
-                <h2>${dataObj.listPage.title}</h2>
+                <h2>${title}</h2>
                 <div style="margin-top: 45px">
-                    ${dataObj.listPage.description}
+                    ${description}
                 </div>
             </body>
         </html>     
@@ -124,19 +123,18 @@ const app = http.createServer((request, response) => {
     fs.readFile(`./data/${title}`, `utf8`, (err, description) => {
       let data = createInitData(fileList);
       if (pathName === `/`) {
-        console.log(pathName);
-        console.log(title);
         if (title === undefined) {
-          template = createTemplate(data, fileList, title, description, `index`);
+          template = createTemplate(data, title, description, `index`);
           response.writeHead(200);
           response.end(template);
         } else {
-          template = createTemplate(data, fileList, title, description, `list`);
+          template = createTemplate(data, title, description, `list`);
           response.writeHead(200);
           response.end(template);
+          console.log(title);
         }
       } else if (pathName === `/crud`) {
-        template = createTemplate(data, fileList, title, description, `crud`);
+        template = createTemplate(data, title, description, `crud`);
         response.writeHead(200);
         response.end(template);
       }
