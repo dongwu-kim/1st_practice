@@ -11,7 +11,7 @@ function createInitData(fileList) {
 
   for (let i = 0; i < fileList.length; i++) {
     let fileName = fileList[i].split(`_`); // fileList[i] = string, fileName = array
-    list = list + `<li><a href = "?id=${fileList[i]}">${fileName[1]}</a></li>`;
+    list = list + `<li><a href = "/?id=${fileList[i]}">${fileName[1]}</a></li>`;
   }
 
   list = list + `</ol>`;
@@ -21,25 +21,25 @@ function createInitData(fileList) {
     listPage: { title, description, list }, // using another function createPage() for filling description
     createPage: {
       title: `Writing your opnion`,
-      description: `<form action="http://localhost:3001/process_crud" method="post">
+      description: `<form action="http://localhost:3002/process_crud" method="post">
     <p><input type="text" name="userName" placeholder="Type your name" /></p>
     <p>
       <textarea
         name="description"
         cols="25"
-        rows="50"
+        rows="25"
         placeholder="감상평을 작성해주시겠어요?"
       ></textarea>
     </p>
     <input type="submit" />
   </form>
-  <form action="http://localhost:3001/process_crud" method="post">
+  <form action="http://localhost:3002/process_crud" method="post">
     <button type="submit">Like</button>
     <button type="submit">Dislike</button>
   </form>`,
       list,
     }, // type your crud element
-  }; // [0] means init of page, [last num] means
+  };
 
   return data;
 }
@@ -120,8 +120,8 @@ const app = http.createServer((request, response) => {
   let list = `list`; // (array === queryString)*/
 
   fs.readdir(`./data`, (err, fileList) => {
+    let data = createInitData(fileList);
     fs.readFile(`./data/${title}`, `utf8`, (err, description) => {
-      let data = createInitData(fileList);
       if (pathName === `/`) {
         if (title === undefined) {
           template = createTemplate(data, title, description, `index`);
@@ -134,6 +134,7 @@ const app = http.createServer((request, response) => {
           console.log(title);
         }
       } else if (pathName === `/crud`) {
+        title = queryData.id;
         template = createTemplate(data, title, description, `crud`);
         response.writeHead(200);
         response.end(template);
