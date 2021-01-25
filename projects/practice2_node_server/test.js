@@ -21,21 +21,21 @@ function createInitData(fileList) {
     listPage: { title, description, list }, // using another function createPage() for filling description
     createPage: {
       title: `Writing your opnion`,
-      description: `<form action="http://localhost:3002/process_crud" method="post">
-    <p><input type="text" name="userName" placeholder="Type your name" /></p>
+      description: `<form action="/process_crud" method="post">
+    <p><input type="text" name="title" placeholder="Type framework or lang" /></p>
     <p>
       <textarea
         name="description"
         cols="25"
         rows="25"
-        placeholder="감상평을 작성해주시겠어요?"
+        placeholder="사용후기 혹은 설명을 작성해주시겠어요?"
       ></textarea>
     </p>
     <input type="submit" />
   </form>
-  <form action="http://localhost:3002/process_crud" method="post">
-    <button type="submit">Like</button>
-    <button type="submit">Dislike</button>
+  <form action="/process_crud" method="post">
+    <button type="submit" name="like">Like</button>
+    <button type="submit" name="dislike">Dislike</button>
   </form>`,
       list,
     }, // type your crud element
@@ -44,100 +44,127 @@ function createInitData(fileList) {
   return data;
 }
 
-function createTemplate(dataObj, title, description, page) {
+function createTemplate(dataObj, inputTitle, inputDescription, fileName, page) {
+  let title = ``,
+    description = ``,
+    list = dataObj.listPage.list,
+    control = ``;
   if (page === `index`) {
-    return `
-  <!DOCTYPE html>
-      <html>
-          <head>
-              <title>WEB1 - ${dataObj.indexPage.title}</title>
-              <meta charset="utf-8" />
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          </head>
-          <body>
-              <h1><a href="/">WEB</a></h1>
-              ${dataObj.indexPage.list}
-              <a href = "/crud">Create sth</a>
-              <h2>${dataObj.indexPage.title}</h2>
-              <div style="margin-top: 45px">
-                  ${dataObj.indexPage.description}
-              </div>
-          </body>
-      </html>     
-      `;
+    // using initTitle and initDesc
+    title = dataObj.indexPage.title;
+    description = dataObj.indexPage.description;
   } else if (page === `list`) {
-    return `
-    <!DOCTYPE html>
-        <html>
-            <head>
-                <title>WEB1 - ${title}</title>
-                <meta charset="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            </head>
-            <body>
-                <h1><a href="/">WEB</a></h1>
-                ${dataObj.listPage.list}
-                <a href = "/crud">Create sth</a>
-                <h2>${title}</h2>
-                <div style="margin-top: 45px">
-                    ${description}
-                </div>
-            </body>
-        </html>     
-        `;
+    //using inputTitle and inputDesc
+    title = inputTitle;
+    description = inputDescription;
+    control = `<a href = "/update?id=${fileName}">Update</a>`;
+  } else if (page === `crud`) {
+    //using initTitle and initDesc
+    title = dataObj.createPage.title;
+    description = dataObj.createPage.description;
+  } else if (page === `update`) {
+    title = inputTitle;
+    description = `<form action="/process_update" method="post">
+    <input type="hidden" name="id" value="${inputTitle}"/>
+    <p><input type="text" name="title" placeholder="Update title" value="${inputTitle}" /></p>
+    <p>
+      <textarea
+        name="description"
+        cols="25"
+        rows="25"
+        placeholder="설명을 작성해주시겠어요?"
+      >${inputDescription}</textarea>
+    </p>
+    <input type="submit" />
+  </form>`;
   } else {
-    return `
+    return `Sorry, you could not use this page yet.`;
+  }
+  return `
   <!DOCTYPE html>
       <html>
           <head>
-              <title>WEB1 - ${dataObj.createPage.title}</title>
+              <title>WEB1 - ${title}</title>
               <meta charset="utf-8" />
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
           </head>
           <body>
               <h1><a href="/">WEB</a></h1>
-              ${dataObj.createPage.list}
+              ${list}
               <a href = "/crud">Create sth</a>
-              <h2>${dataObj.createPage.title}</h2>
+              ${control}
+              <h2>${title}</h2>
               <div style="margin-top: 45px">
-                  ${dataObj.createPage.description}
+                  ${description}
               </div>
           </body>
       </html>     
       `;
-  }
 }
 
 const app = http.createServer((request, response) => {
   const _url = request.url,
     queryData = url.parse(_url, true).query,
     pathName = url.parse(_url, true).pathname;
-  let template = ``,
-    title = queryData.id;
 
-  /*let title = `hi`; // page element -> index : welcome, list page : title - filename(dir read), create : static
-  let description = `desc`; // file read -> file text
-  let list = `list`; // (array === queryString)*/
+  function createPage(statusCode, endData) {
+    response.writeHead(statusCode);
+    response.end(endData);
+  }
 
   fs.readdir(`./data`, (err, fileList) => {
+    let template = ``;
+    let title = queryData.id;
+
+    fileList = fileList.sort((a, b) => {
+      let c = parseInt(a, 10);
+      let d = parseInt(b, 10);
+      return c < d ? -1 : c == d ? 0 : 1;
+    });
+
     let data = createInitData(fileList);
     fs.readFile(`./data/${title}`, `utf8`, (err, description) => {
       if (pathName === `/`) {
         if (title === undefined) {
-          template = createTemplate(data, title, description, `index`);
-          response.writeHead(200);
-          response.end(template);
+          template = createTemplate(data, ``, ``, ``, `index`);
+          createPage(200, template);
         } else {
-          template = createTemplate(data, title, description, `list`);
-          response.writeHead(200);
-          response.end(template);
-          console.log(title);
+          title = title.split(`_`);
+          title = title[1];
+          let fileName = queryData.id;
+          template = createTemplate(data, title, description, fileName, `list`);
+          createPage(200, template);
         }
       } else if (pathName === `/crud`) {
-        title = queryData.id;
-        template = createTemplate(data, title, description, `crud`);
-        response.writeHead(200);
-        response.end(template);
+        template = createTemplate(data, ``, ``, ``, `crud`);
+        createPage(200, template);
+      } else if (pathName === `/process_crud`) {
+        let body = ``;
+        request.on(`data`, (data) => {
+          body = body + data;
+        });
+        request.on(`end`, () => {
+          let post = qs.parse(body);
+          let title = post.title;
+          let description = post.description;
+          let date = Date.now();
+          if (title === `` || description === ``) {
+            response.writeHead(302, { Location: `/crud` });
+            response.end();
+          } else {
+            let fileName = date + `_` + title;
+            fs.writeFile(`./data/${fileName}`, description, `utf8`, (err) => {
+              response.writeHead(302, { Location: `/?id=${qs.escape(fileName)}` });
+              response.end();
+            });
+          }
+        });
+      } else if (pathName === `/update`) {
+        console.log(title);
+        template = createTemplate(data, title, description, ``, `update`);
+        createPage(200, template);
+      } else {
+        createPage(404, `Sorry, We could not found this site.`);
       }
     });
   });
