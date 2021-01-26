@@ -21,7 +21,7 @@ function createInitData(fileList) {
     listPage: { title, description, list }, // using another function createPage() for filling description
     createPage: {
       title: `Writing your opnion`,
-      description: `<form action="/process_crud" method="post">
+      description: `<form action="/crud_process" method="post">
     <p><input type="text" name="title" placeholder="Type framework or lang" /></p>
     <p>
       <textarea
@@ -33,7 +33,7 @@ function createInitData(fileList) {
     </p>
     <input type="submit" />
   </form>
-  <form action="/process_crud" method="post">
+  <form action="/crud_process" method="post">
     <button type="submit" name="like">Like</button>
     <button type="submit" name="dislike">Dislike</button>
   </form>`,
@@ -57,15 +57,19 @@ function createTemplate(dataObj, inputTitle, inputDescription, fileName, page) {
     //using inputTitle and inputDesc
     title = inputTitle;
     description = inputDescription;
-    control = `<a href = "/update?id=${fileName}">Update</a>`;
+    control = `<a href = "/update?id=${fileName}">Update</a>
+    <form action="/delete_process" method="post">
+    <input type="hidden" name="id" value="${fileName}" />
+    <input type="submit" value="delete" />
+    </form>`;
   } else if (page === `crud`) {
     //using initTitle and initDesc
     title = dataObj.createPage.title;
     description = dataObj.createPage.description;
   } else if (page === `update`) {
     title = inputTitle;
-    description = `<form action="/process_update" method="post">
-    <input type="hidden" name="id" value="${inputTitle}"/>
+    description = `<form action="/update_process" method="post">
+    <input type="hidden" name="id" value="${fileName}"/>
     <p><input type="text" name="title" placeholder="Update title" value="${inputTitle}" /></p>
     <p>
       <textarea
@@ -138,7 +142,7 @@ const app = http.createServer((request, response) => {
       } else if (pathName === `/crud`) {
         template = createTemplate(data, ``, ``, ``, `crud`);
         createPage(200, template);
-      } else if (pathName === `/process_crud`) {
+      } else if (pathName === `/crud_process`) {
         let body = ``;
         request.on(`data`, (data) => {
           body = body + data;
@@ -160,9 +164,43 @@ const app = http.createServer((request, response) => {
           }
         });
       } else if (pathName === `/update`) {
-        console.log(title);
-        template = createTemplate(data, title, description, ``, `update`);
+        title = title.split(`_`);
+        title = title[1];
+        let fileName = queryData.id;
+        template = createTemplate(data, title, description, fileName, `update`);
         createPage(200, template);
+      } else if (pathName === `/update_process`) {
+        let body = ``;
+        request.on(`data`, (data) => {
+          body = body + data;
+        });
+        request.on(`end`, () => {
+          let post = qs.parse(body);
+          let id = post.id;
+          let description = post.description;
+          if (id === ``) {
+            response.writeHead(302, { Location: `/update` });
+            response.end();
+          } else {
+            fs.writeFile(`./data/${id}`, description, `utf8`, (err) => {
+              response.writeHead(302, { Location: `/?id=${qs.escape(id)}` });
+              response.end();
+            });
+          }
+        });
+      } else if (pathName === `/delete_process`) {
+        let body = ``;
+        request.on(`data`, (data) => {
+          body = body + data;
+        });
+        request.on(`end`, () => {
+          let post = qs.parse(body);
+          let id = post.id;
+          fs.unlink(`data/${id}`, (err) => {
+            response.writeHead(302, { Location: `/` });
+            response.end();
+          });
+        });
       } else {
         createPage(404, `Sorry, We could not found this site.`);
       }
