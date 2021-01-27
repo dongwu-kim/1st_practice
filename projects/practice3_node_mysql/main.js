@@ -30,7 +30,8 @@ const app = http.createServer((request, response) => {
 
   let template = ``;
   let title = queryData.id;
-  test SpeechRecognition;
+  let reset = `resetTest`;
+  console.log(reset);
 
   if (pathName === `/`) {
     if (title === undefined) {
