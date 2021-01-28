@@ -1,12 +1,16 @@
 const initialize = {
-  createInitData: (fileList) => {
+  createInitData: (dbTable) => {
     let title = ``,
       description = ``, // Textfile description
       list = `<ol>`;
 
-    for (let i = 0; i < fileList.length; i++) {
-      let fileName = fileList[i].split(`_`); // fileList[i] = string, fileName = array
-      list = list + `<li><a href = "/?id=${fileList[i]}">${fileName[1]}</a></li>`;
+    for (let i = 0; i < dbTable.length; i++) {
+      // table[i] = string, id = array
+      list =
+        list +
+        `<li><a href = "/?id=${dbTable[i].id}">${
+          dbTable[i].user + ` : ` + dbTable[i].comment
+        }</a></li>`;
     }
 
     list = list + `</ol>`;
@@ -39,7 +43,7 @@ const initialize = {
     return data;
   },
 
-  createTemplate: (dataObj, inputTitle, inputDescription, fileName, page) => {
+  createTemplate: (dataObj, inputTitle, inputDescription, id, page) => {
     let title = ``,
       description = ``,
       list = dataObj.listPage.list,
@@ -52,9 +56,9 @@ const initialize = {
       //using inputTitle and inputDesc
       title = inputTitle;
       description = inputDescription;
-      control = `<a href = "/update?id=${fileName}">Update</a>
+      control = `<a href = "/update?id=${id}">Update</a>
             <form action="/delete_process" method="post">
-            <input type="hidden" name="id" value="${fileName}" />
+            <input type="hidden" name="id" value="${id}" />
             <input type="submit" value="delete" />
             </form>`;
     } else if (page === `crud`) {
@@ -64,7 +68,7 @@ const initialize = {
     } else if (page === `update`) {
       title = inputTitle;
       description = `<form action="/update_process" method="post">
-            <input type="hidden" name="id" value="${fileName}"/>
+            <input type="hidden" name="id" value="${id}"/>
             <p><input type="text" name="title" placeholder="Update title" value="${inputTitle}" /></p>
             <p>
               <textarea

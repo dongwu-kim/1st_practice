@@ -30,8 +30,6 @@ const app = http.createServer((request, response) => {
 
   let template = ``;
   let title = queryData.id;
-  let reset = `resetTest`;
-  console.log(reset);
 
   if (pathName === `/`) {
     if (title === undefined) {
@@ -39,16 +37,14 @@ const app = http.createServer((request, response) => {
         fileList = sort.sortString(fileList);
         console.log(fileList);
         let data = initialize.createInitData(fileList);
-
-        template = initialize.createTemplate(data, ``, ``, ``, `index`);
-        createPage(200, template);
       });*/
       db.query(`SELECT * FROM comments`, (error, comments) => {
-        console.log(comments);
-        createPage(200, `Sucess`);
+        data = initialize.createInitData(comments);
+        template = initialize.createTemplate(data, ``, ``, ``, `index`);
+        createPage(200, template);
       });
     } else {
-      fs.readdir(`./data`, (err, fileList) => {
+      /*fs.readdir(`./data`, (err, fileList) => {
         fileList = sort.sortString(fileList);
         console.log(fileList);
         let data = initialize.createInitData(fileList);
@@ -61,6 +57,14 @@ const app = http.createServer((request, response) => {
           template = initialize.createTemplate(data, title, description, fileName, `list`);
           createPage(200, template);
         });
+      });*/
+      db.query(`SELECT * FROM comments`, (error, comments) => {
+        data = initialize.createInitData(comments);
+        title = comments.user;
+        description = comments.comment;
+        id = comments.id;
+        template = initialize.createTemplate(data, title, description, id, `list`);
+        createPage(200, template);
       });
     }
   } else if (pathName === `/crud`) {
