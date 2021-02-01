@@ -1,0 +1,265 @@
+[33m18be0f3[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m HEAD@{0}: commit: ignore
+[33mc598dc1[m HEAD@{1}: commit: node_mysql test
+[33mdd399f0[m HEAD@{2}: commit: node test
+[33m65bc535[m HEAD@{3}: commit: node fin
+[33m6a18dcb[m HEAD@{4}: commit: node study
+[33mf81e9f5[m HEAD@{5}: commit: test node
+[33m601b69e[m HEAD@{6}: commit: node study
+[33m79fcd44[m HEAD@{7}: commit: node study
+[33mf9e0bd0[m HEAD@{8}: commit: node study
+[33m335171c[m HEAD@{9}: commit: test
+[33md6ba51e[m HEAD@{10}: commit: why dont compile
+[33m12ddd5a[m HEAD@{11}: commit: node test
+[33m19b2f54[m HEAD@{12}: commit: node study
+[33m74f3f2e[m HEAD@{13}: commit: node study
+[33m49778ec[m HEAD@{14}: commit: test
+[33m88db42c[m HEAD@{15}: commit: test
+[33m117dfe8[m HEAD@{16}: commit: node test 0115
+[33mf89c2d9[m HEAD@{17}: commit: node test
+[33m967f463[m HEAD@{18}: commit: node2
+[33m4781286[m HEAD@{19}: commit: practice_upload1
+[33m23863cd[m HEAD@{20}: commit: practice_upload
+[33m66ec6c7[m HEAD@{21}: commit: node_test
+[33m469cbe1[m[33m ([m[1;31morigin/gh-pages[m[33m, [m[1;32mgh-pages[m[33m)[m HEAD@{22}: merge gh-pages: Fast-forward
+[33mc785f16[m HEAD@{23}: checkout: moving from gh-pages to master
+[33m469cbe1[m[33m ([m[1;31morigin/gh-pages[m[33m, [m[1;32mgh-pages[m[33m)[m HEAD@{24}: commit: node_test
+[33mc785f16[m HEAD@{25}: merge master: Fast-forward
+[33m71fdd35[m HEAD@{26}: checkout: moving from master to gh-pages
+[33mc785f16[m HEAD@{27}: commit: Update .gitignore
+[33m71fdd35[m HEAD@{28}: checkout: moving from gh-pages to master
+[33m71fdd35[m HEAD@{29}: merge master: Fast-forward
+[33mc57ce6b[m HEAD@{30}: checkout: moving from master to gh-pages
+[33m71fdd35[m HEAD@{31}: commit: update_index
+[33mc57ce6b[m HEAD@{32}: merge gh-pages: Fast-forward
+[33mb6a2d75[m HEAD@{33}: checkout: moving from gh-pages to master
+[33mc57ce6b[m HEAD@{34}: commit: path_update
+[33mb6a2d75[m HEAD@{35}: merge master: Fast-forward
+[33m06b49cf[m HEAD@{36}: checkout: moving from master to gh-pages
+[33mb6a2d75[m HEAD@{37}: commit: CSS_test
+[33ma91dac8[m[33m ([m[1;31morigin/ver_update_place[m[33m, [m[1;32mver_update_place[m[33m)[m HEAD@{38}: merge ver_update_place: Fast-forward
+[33m06b49cf[m HEAD@{39}: checkout: moving from ver_update_place to master
+[33ma91dac8[m[33m ([m[1;31morigin/ver_update_place[m[33m, [m[1;32mver_update_place[m[33m)[m HEAD@{40}: commit: modal_test1
+[33m06b49cf[m HEAD@{41}: merge master: Fast-forward
+[33m421e4e0[m HEAD@{42}: checkout: moving from master to ver_update_place
+[33m06b49cf[m HEAD@{43}: merge gh-pages: Fast-forward
+[33ma174ea5[m HEAD@{44}: checkout: moving from gh-pages to master
+[33m06b49cf[m HEAD@{45}: commit: reupdate_flip
+[33ma174ea5[m HEAD@{46}: merge master: Fast-forward
+[33m421e4e0[m HEAD@{47}: checkout: moving from ver_update_place to gh-pages
+[33m421e4e0[m HEAD@{48}: checkout: moving from master to ver_update_place
+[33ma174ea5[m HEAD@{49}: commit: update_mobile_flip
+[33m99243f9[m HEAD@{50}: commit: Update README.md
+[33m421e4e0[m HEAD@{51}: checkout: moving from ver_update_place to master
+[33m421e4e0[m HEAD@{52}: merge master: Fast-forward
+[33mff4c25c[m HEAD@{53}: checkout: moving from gh-pages to ver_update_place
+[33m421e4e0[m HEAD@{54}: merge master: Fast-forward
+[33m5d2e006[m HEAD@{55}: checkout: moving from master to gh-pages
+[33m421e4e0[m HEAD@{56}: commit: reupdate_12_23
+[33m90d70c8[m HEAD@{57}: commit: update_2020.12.23
+[33m7a44738[m HEAD@{58}: commit: move
+[33m7e5a9da[m HEAD@{59}: commit: index_end
+[33m74b2c4f[m HEAD@{60}: commit: update_test2
+[33m5813485[m HEAD@{61}: commit: updated by 12.22
+[33mff61e30[m HEAD@{62}: commit: test2_update
+[33mff4c25c[m HEAD@{63}: merge ver_update_place: Fast-forward
+[33m5d2e006[m HEAD@{64}: checkout: moving from ver_update_place to master
+[33mff4c25c[m HEAD@{65}: commit: updated_1221
+[33m5d2e006[m HEAD@{66}: merge master: Fast-forward
+[33m4817729[m HEAD@{67}: checkout: moving from master to ver_update_place
+[33m5d2e006[m HEAD@{68}: merge gh-pages: Fast-forward
+[33m599478a[m HEAD@{69}: checkout: moving from gh-pages to master
+[33m5d2e006[m HEAD@{70}: commit: test2_updated_12.20
+[33m599478a[m HEAD@{71}: merge master: Fast-forward
+[33m039b583[m HEAD@{72}: checkout: moving from master to gh-pages
+[33m599478a[m HEAD@{73}: commit: Ddaem_Bbang
+[33m141c509[m HEAD@{74}: commit: img_updated
+[33m039b583[m HEAD@{75}: checkout: moving from ver_update_place to master
+[33m4817729[m HEAD@{76}: checkout: moving from master to ver_update_place
+[33m039b583[m HEAD@{77}: merge gh-pages: Fast-forward
+[33m60a36e8[m HEAD@{78}: checkout: moving from gh-pages to master
+[33m039b583[m HEAD@{79}: commit: renewal_index
+[33m60a36e8[m HEAD@{80}: merge master: Fast-forward
+[33m9ebbf97[m HEAD@{81}: checkout: moving from ver_update_place to gh-pages
+[33m4817729[m HEAD@{82}: checkout: moving from master to ver_update_place
+[33m60a36e8[m HEAD@{83}: commit: test_main_renewal
+[33m4817729[m HEAD@{84}: merge ver_update_place: Fast-forward
+[33m9ebbf97[m HEAD@{85}: checkout: moving from ver_update_place to master
+[33m4817729[m HEAD@{86}: commit: section_design_update
+[33m9ebbf97[m HEAD@{87}: checkout: moving from gh-pages to ver_update_place
+[33m9ebbf97[m HEAD@{88}: merge master: Fast-forward
+[33mc4ca5c3[m HEAD@{89}: checkout: moving from master to gh-pages
+[33m9ebbf97[m HEAD@{90}: merge ver_update_place: Fast-forward
+[33mc4ca5c3[m HEAD@{91}: checkout: moving from gh-pages to master
+[33mc4ca5c3[m HEAD@{92}: checkout: moving from ver_update_place to gh-pages
+[33m9ebbf97[m HEAD@{93}: commit: new_project_test_2
+[33me6c9020[m HEAD@{94}: commit: update_for
+[33m14b78c2[m HEAD@{95}: commit: for_test
+[33mc4ca5c3[m HEAD@{96}: merge master: Fast-forward
+[33md3a70a8[m HEAD@{97}: checkout: moving from gh-pages to ver_update_place
+[33mc4ca5c3[m HEAD@{98}: merge master: Fast-forward
+[33m3af0fab[m HEAD@{99}: checkout: moving from master to gh-pages
+[33mc4ca5c3[m HEAD@{100}: commit: animation_fixed
+[33m3af0fab[m HEAD@{101}: merge gh-pages: Fast-forward
+[33m13040e0[m HEAD@{102}: checkout: moving from gh-pages to master
+[33m3af0fab[m HEAD@{103}: commit: animation_update
+[33m13040e0[m HEAD@{104}: merge master: Fast-forward
+[33meae535e[m HEAD@{105}: checkout: moving from master to gh-pages
+[33m13040e0[m HEAD@{106}: commit: anima_final2
+[33meae535e[m HEAD@{107}: merge gh-pages: Fast-forward
+[33md31bc3e[m HEAD@{108}: checkout: moving from gh-pages to master
+[33meae535e[m HEAD@{109}: commit: first_time_final
+[33md31bc3e[m HEAD@{110}: merge master: Fast-forward
+[33mfb464eb[m HEAD@{111}: checkout: moving from master to gh-pages
+[33md31bc3e[m HEAD@{112}: commit: reupdate_flip
+[33mfb464eb[m HEAD@{113}: merge gh-pages: Fast-forward
+[33m112826e[m HEAD@{114}: checkout: moving from gh-pages to master
+[33mfb464eb[m HEAD@{115}: commit: reupload_font_size
+[33m112826e[m HEAD@{116}: merge master: Fast-forward
+[33m31db5c0[m HEAD@{117}: checkout: moving from master to gh-pages
+[33m112826e[m HEAD@{118}: commit: reupload_font_size
+[33m31db5c0[m HEAD@{119}: merge gh-pages: Fast-forward
+[33md3a70a8[m HEAD@{120}: checkout: moving from gh-pages to master
+[33m31db5c0[m HEAD@{121}: commit: shit_real_good
+[33md3a70a8[m HEAD@{122}: merge master: Fast-forward
+[33mb002ac6[m HEAD@{123}: checkout: moving from ver_update_place to gh-pages
+[33md3a70a8[m HEAD@{124}: checkout: moving from master to ver_update_place
+[33md3a70a8[m HEAD@{125}: merge ver_update_place: Fast-forward
+[33ma7ed8b6[m HEAD@{126}: checkout: moving from ver_update_place to master
+[33md3a70a8[m HEAD@{127}: commit: very_nice_1
+[33mb002ac6[m HEAD@{128}: merge gh-pages: Fast-forward
+[33ma5936e5[m HEAD@{129}: checkout: moving from gh-pages to ver_update_place
+[33mb002ac6[m HEAD@{130}: commit: renewal_1
+[33ma7ed8b6[m HEAD@{131}: merge master: Fast-forward
+[33ma5936e5[m HEAD@{132}: checkout: moving from master to gh-pages
+[33ma7ed8b6[m HEAD@{133}: commit: test_phone_orientation
+[33ma5936e5[m HEAD@{134}: merge ver_update_place: Fast-forward
+[33mf9f0616[m HEAD@{135}: checkout: moving from ver_update_place to master
+[33ma5936e5[m HEAD@{136}: merge gh-pages: Fast-forward
+[33m73ed6b1[m HEAD@{137}: checkout: moving from gh-pages to ver_update_place
+[33ma5936e5[m HEAD@{138}: commit: why_success?
+[33mf9f0616[m HEAD@{139}: merge master: Fast-forward
+[33m3704699[m HEAD@{140}: checkout: moving from master to gh-pages
+[33mf9f0616[m HEAD@{141}: commit: update_pcMode
+[33m8bbcaad[m HEAD@{142}: commit: file_update
+[33m3704699[m HEAD@{143}: checkout: moving from gh-pages to master
+[33m3704699[m HEAD@{144}: merge master: Fast-forward
+[33m4cb40fe[m HEAD@{145}: checkout: moving from master to gh-pages
+[33m3704699[m HEAD@{146}: commit (merge): promise_practice
+[33mb4030ab[m HEAD@{147}: checkout: moving from ver_update_place to master
+[33m73ed6b1[m HEAD@{148}: commit: animation_update
+[33m1411ddc[m HEAD@{149}: commit: promise_practice
+[33mfdf7186[m HEAD@{150}: checkout: moving from master to ver_update_place
+[33mb4030ab[m HEAD@{151}: commit: test3_check
+[33me74b6e5[m HEAD@{152}: revert: Revert "Revert "Revert "test3"""
+[33mc3252f7[m HEAD@{153}: checkout: moving from ver_update_place to master
+[33mfdf7186[m HEAD@{154}: checkout: moving from master to ver_update_place
+[33mc3252f7[m HEAD@{155}: revert: Revert "Revert "test3""
+[33m0ccedfc[m HEAD@{156}: revert: Revert "test3"
+[33mfdf7186[m HEAD@{157}: checkout: moving from ver_update_place to master
+[33mfdf7186[m HEAD@{158}: checkout: moving from master to ver_update_place
+[33mfdf7186[m HEAD@{159}: checkout: moving from ver_update_place to master
+[33mfdf7186[m HEAD@{160}: merge master: Fast-forward
+[33m8643a18[m HEAD@{161}: checkout: moving from master to ver_update_place
+[33mfdf7186[m HEAD@{162}: commit: test3
+[33m4cb40fe[m HEAD@{163}: checkout: moving from gh-pages to master
+[33m4cb40fe[m HEAD@{164}: merge master: Fast-forward
+[33m8643a18[m HEAD@{165}: checkout: moving from master to gh-pages
+[33m4cb40fe[m HEAD@{166}: commit: test
+[33m8643a18[m HEAD@{167}: checkout: moving from gh-pages to master
+[33m8643a18[m HEAD@{168}: merge master: Fast-forward
+[33m8cfe1c0[m HEAD@{169}: checkout: moving from master to gh-pages
+[33m8643a18[m HEAD@{170}: merge ver_update_place: Fast-forward
+[33mb1f1578[m HEAD@{171}: checkout: moving from ver_update_place to master
+[33m8643a18[m HEAD@{172}: checkout: moving from master to ver_update_place
+[33mb1f1578[m HEAD@{173}: checkout: moving from ver_update_place to master
+[33m8643a18[m HEAD@{174}: commit: test2
+[33mb1f1578[m HEAD@{175}: checkout: moving from master to ver_update_place
+[33mb1f1578[m HEAD@{176}: merge ver_update_place: Fast-forward
+[33m8cfe1c0[m HEAD@{177}: checkout: moving from ver_update_place to master
+[33mb1f1578[m HEAD@{178}: commit: test1
+[33m8cfe1c0[m HEAD@{179}: checkout: moving from gh-pages to ver_update_place
+[33m8cfe1c0[m HEAD@{180}: merge master: Fast-forward
+[33mc7387e3[m HEAD@{181}: checkout: moving from master to gh-pages
+[33m8cfe1c0[m HEAD@{182}: merge ver_update_place: Fast-forward
+[33m7845e18[m HEAD@{183}: checkout: moving from ver_update_place to master
+[33m8cfe1c0[m HEAD@{184}: commit: test_update
+[33mf287d57[m HEAD@{185}: commit: renewal_befor_http_server
+[33m5ac72c5[m HEAD@{186}: commit: fnc_updated
+[33m493e01a[m HEAD@{187}: commit: test_main
+[33m7845e18[m HEAD@{188}: merge master: Fast-forward
+[33mcea0cc1[m HEAD@{189}: checkout: moving from master to ver_update_place
+[33m7845e18[m HEAD@{190}: commit: prototype_update
+[33me64c2ee[m HEAD@{191}: commit: img_reupdate
+[33m941300b[m HEAD@{192}: pull --progress origin: Merge made by the 'recursive' strategy.
+[33mab1ea7f[m HEAD@{193}: commit: christmas_img_updated
+[33m62f9ef4[m HEAD@{194}: commit: main_img_update
+[33mc7387e3[m HEAD@{195}: merge gh-pages: Fast-forward
+[33md1fb1df[m HEAD@{196}: checkout: moving from gh-pages to master
+[33mc7387e3[m HEAD@{197}: commit: to-do_list
+[33md1fb1df[m HEAD@{198}: merge master: Fast-forward
+[33mf11a875[m HEAD@{199}: checkout: moving from master to gh-pages
+[33md1fb1df[m HEAD@{200}: commit: update_JS_project_1209
+[33mf11a875[m HEAD@{201}: checkout: moving from gh-pages to master
+[33mf11a875[m HEAD@{202}: merge master: Fast-forward
+[33m1a32781[m HEAD@{203}: checkout: moving from master to gh-pages
+[33mf11a875[m HEAD@{204}: commit: 2nd_final_update
+[33m1a32781[m HEAD@{205}: checkout: moving from gh-pages to master
+[33m1a32781[m HEAD@{206}: merge master: Fast-forward
+[33m03a2aa2[m HEAD@{207}: checkout: moving from master to gh-pages
+[33m1a32781[m HEAD@{208}: commit: 1st_final_update
+[33maa1d7f5[m HEAD@{209}: commit: img_updated
+[33m658e174[m HEAD@{210}: commit: img_updated
+[33m03a2aa2[m HEAD@{211}: merge gh-pages: Fast-forward
+[33m45bab49[m HEAD@{212}: checkout: moving from gh-pages to master
+[33m03a2aa2[m HEAD@{213}: commit: img_updated
+[33m45bab49[m HEAD@{214}: checkout: moving from master to gh-pages
+[33m45bab49[m HEAD@{215}: merge gh-pages: Fast-forward
+[33mcea0cc1[m HEAD@{216}: checkout: moving from gh-pages to master
+[33m45bab49[m HEAD@{217}: commit: app-section_updated
+[33m2df77cc[m HEAD@{218}: commit: updated_position
+[33mcea0cc1[m HEAD@{219}: merge master: Fast-forward
+[33me0117f3[m HEAD@{220}: checkout: moving from master to gh-pages
+[33mcea0cc1[m HEAD@{221}: merge ver_update_place: Fast-forward
+[33me0117f3[m HEAD@{222}: checkout: moving from ver_update_place to master
+[33mcea0cc1[m HEAD@{223}: commit: mobile_updated
+[33me0117f3[m HEAD@{224}: merge master: Fast-forward
+[33m46e1005[m[33m ([m[1;32mportfolio[m[33m)[m HEAD@{225}: checkout: moving from gh-pages to ver_update_place
+[33me0117f3[m HEAD@{226}: checkout: moving from master to gh-pages
+[33me0117f3[m HEAD@{227}: merge gh-pages: Fast-forward
+[33ma678ff4[m HEAD@{228}: checkout: moving from gh-pages to master
+[33me0117f3[m HEAD@{229}: commit: updated_img_sizes
+[33ma678ff4[m HEAD@{230}: checkout: moving from master to gh-pages
+[33ma678ff4[m HEAD@{231}: checkout: moving from gh-pages to master
+[33ma678ff4[m HEAD@{232}: merge master: Fast-forward
+[33mb5c98d7[m HEAD@{233}: checkout: moving from master to gh-pages
+[33ma678ff4[m HEAD@{234}: commit: hover_animation_media_updated
+[33m77787e5[m HEAD@{235}: commit: img_updated
+[33m3031a24[m HEAD@{236}: commit: img_updated
+[33mdb77afe[m HEAD@{237}: commit: img_updated
+[33m740a565[m HEAD@{238}: commit: img_updated
+[33m4115f08[m HEAD@{239}: commit: img_updated_logo
+[33maa484f7[m HEAD@{240}: commit: png_to_jpg
+[33mb5c98d7[m HEAD@{241}: checkout: moving from gh-pages to master
+[33mb5c98d7[m HEAD@{242}: merge master: Fast-forward
+[33m0a94ec4[m HEAD@{243}: checkout: moving from master to gh-pages
+[33mb5c98d7[m HEAD@{244}: commit: image_updated
+[33m4538ea3[m HEAD@{245}: commit: img_updated((copyrights by blizzard))
+[33maf811e9[m HEAD@{246}: commit: image_rename(copyrights by blizzard)
+[33m0a94ec4[m HEAD@{247}: merge gh-pages: Fast-forward
+[33me98f4f2[m HEAD@{248}: checkout: moving from gh-pages to master
+[33m0a94ec4[m HEAD@{249}: commit: img_updated(copyrights by Blizzard)
+[33me98f4f2[m HEAD@{250}: checkout: moving from master to gh-pages
+[33me98f4f2[m HEAD@{251}: merge gh-pages: Fast-forward
+[33md2ca01f[m HEAD@{252}: checkout: moving from gh-pages to master
+[33me98f4f2[m HEAD@{253}: commit: updated_css
+[33md2ca01f[m HEAD@{254}: merge master: Fast-forward
+[33mf548186[m HEAD@{255}: checkout: moving from master to gh-pages
+[33md2ca01f[m HEAD@{256}: checkout: moving from gh-pages to master
+[33mf548186[m HEAD@{257}: checkout: moving from master to gh-pages
+[33md2ca01f[m HEAD@{258}: commit: blizzard_clone_updated
+[33mf548186[m HEAD@{259}: checkout: moving from ver_update_place to master
+[33m46e1005[m[33m ([m[1;32mportfolio[m[33m)[m HEAD@{260}: checkout: moving from master to ver_update_place
+[33mf548186[m HEAD@{261}: checkout: moving from gh-pages to master
+[33mf548186[m HEAD@{262}: checkout: moving from master to gh-pages
+[33mf548186[m HEAD@{263}: merge gh-pages: Fast-forward
+[33m4e3f7e4[m HEAD@{264}: checkout: moving from gh-pages to master
