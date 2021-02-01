@@ -6,11 +6,7 @@ const initialize = {
 
     for (let i = 0; i < dbTable.length; i++) {
       // table[i] = string, id = array
-      list =
-        list +
-        `<li><a href = "/?id=${dbTable[i].id}">${
-          dbTable[i].user + ` : ` + dbTable[i].comment
-        }</a></li>`;
+      list = list + `<li><a href = "/?id=${dbTable[i].id}">${dbTable[i].user}</a></li>`;
     }
 
     list = list + `</ol>`;

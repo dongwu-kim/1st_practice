@@ -8,6 +8,7 @@ const http = require("http"),
   sanitize = require("sanitize-html"),
   sort = require("./sort"),
   mysql = require("mysql");
+const { createTemplate } = require("./init");
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -39,6 +40,7 @@ const app = http.createServer((request, response) => {
         let data = initialize.createInitData(fileList);
       });*/
       db.query(`SELECT * FROM comments`, (error, comments) => {
+        console.log(comments);
         data = initialize.createInitData(comments);
         template = initialize.createTemplate(data, ``, ``, ``, `index`);
         createPage(200, template);
@@ -58,13 +60,9 @@ const app = http.createServer((request, response) => {
           createPage(200, template);
         });
       });*/
-      db.query(`SELECT * FROM comments`, (error, comments) => {
-        data = initialize.createInitData(comments);
-        title = comments.user;
-        description = comments.comment;
-        id = comments.id;
-        template = initialize.createTemplate(data, title, description, id, `list`);
-        createPage(200, template);
+      db.query(`SELECT * FROM comments WHERE id=?`, [queryData.id], (error, comments) => {
+        console.log(comments);
+        template = initialize.createTemplate();
       });
     }
   } else if (pathName === `/crud`) {
