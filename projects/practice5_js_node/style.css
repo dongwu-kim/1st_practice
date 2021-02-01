@@ -1,0 +1,12 @@
+html {
+  font-size: 14px;
+}
+body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+#tetris {
+  width: 200px;
+  height: 400px;
+}
