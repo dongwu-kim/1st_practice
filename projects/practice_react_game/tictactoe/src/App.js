@@ -100,7 +100,8 @@ class Game extends React.Component {
 
     for (let i = 0; i < 3; i++) {
       col = rows[i].indexOf(num) + 1;
-      row = cols[i].indexOf(num) + 1; // 결과값 확인 시 정상적인 선언임을 알 수 있다.
+      row = cols[i].indexOf(num) + 1;
+      // 결과값 확인 시 정상적인 선언임을 알 수 있다.
       if (col !== 0) {
         colNum.push(col);
       }
@@ -109,31 +110,32 @@ class Game extends React.Component {
       }
       rowAndCol = rowNum.concat(colNum);
     }
-    console.log(rowAndCol);
     return rowAndCol;
   }
-
-  writeRowCol() {}
 
   handleClick(i) {
     const rowAndCol = this.checkRowCol(i);
     const history = this.state.history.slice(0, this.state.stepNum + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
+    let location = this.state.rowAndCol.slice();
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
+    location.push(rowAndCol);
     squares[i] = this.state.xIsNext ? `X` : `O`;
     this.setState({
       history: history.concat([{ squares: squares }]),
       xIsNext: !this.state.xIsNext,
       stepNum: history.length,
-      rowAndCol: rowAndCol,
+      rowAndCol: location,
     });
   }
 
   jumpTo(step) {
     this.setState({ stepNum: step, xIsNext: step % 2 === 0 });
+    console.log(step);
+    console.log(this.state.history[step]);
   }
 
   render() {
@@ -148,7 +150,15 @@ class Game extends React.Component {
       /*console.log(history);
       console.log(move);
       move는 map의 원형에서 index에 위치한 값입니다.*/
-      const desc = move ? `Go to move #` + move + rowAndCol : `Go to game start`;
+      const desc = move
+        ? `Go to move #` +
+          move +
+          ` ` +
+          rowAndCol[move - 1][0] +
+          ` 행 ` +
+          rowAndCol[move - 1][1] +
+          ` 열 `
+        : `Go to game start`;
       // 초기에는 move의 값이 없고, 클릭 시 생성됩니다.
       return (
         <li key={move}>
