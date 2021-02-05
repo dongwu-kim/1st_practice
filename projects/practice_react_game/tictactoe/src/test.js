@@ -25,7 +25,7 @@ function calculateWinner(squares) {
 
 function Square(props) {
   return (
-    <button className="square" onClick={props.onClick}>
+    <button id={props.id} className="square" onClick={props.onClick}>
       {props.value}
     </button>
   );
@@ -36,6 +36,7 @@ class Board extends React.Component {
     return (
       <Square
         key={i}
+        id={i}
         value={this.props.squares[i]}
         onClick={() => {
           this.props.onClick(i);
@@ -64,7 +65,7 @@ class Board extends React.Component {
 
   render() {
     let test = this.paintSquares(3, 3);
-    console.log(test);
+
     return (
       <div>
         <div className="status"></div>
@@ -121,28 +122,46 @@ class Game extends React.Component {
   }
 
   handleClick(i) {
-    const rowAndCol = this.checkRowCol(i);
+    const location = this.checkRowCol(i);
     const history = this.state.history.slice(0, this.state.stepNum + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
-    let location = this.state.rowAndCol.slice();
+    let rowAndCol = this.state.rowAndCol.slice();
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    location.push(rowAndCol);
+    rowAndCol.push(location);
     squares[i] = this.state.xIsNext ? `X` : `O`;
     this.setState({
       history: history.concat([{ squares: squares }]),
       xIsNext: !this.state.xIsNext,
       stepNum: history.length,
-      rowAndCol: location,
+      rowAndCol: rowAndCol,
     });
   }
 
-  jumpTo(step) {
+  squareColor(i) {
+    const board = document.getElementsByClassName(`square`);
+    if (i === 9 || i === -1) {
+      return;
+    } else {
+      for (let index = 0; index < 9; index++) {
+        board[index].style.backgroundColor = `white`;
+      }
+      board[i].style.backgroundColor = `blue`;
+    }
+  }
+
+  jumpTo(step, rowNum, colNum) {
+    if (rowNum === 1) {
+      this.squareColor(rowNum + colNum - 2);
+    } else if (rowNum === 2) {
+      this.squareColor(rowNum + colNum);
+    } else if (rowNum === 3) {
+      this.squareColor(rowNum + colNum + 2);
+    }
+
     this.setState({ stepNum: step, xIsNext: step % 2 === 0 });
-    console.log(step);
-    console.log(this.state.history[step]);
   }
 
   render() {
@@ -150,13 +169,7 @@ class Game extends React.Component {
     const current = history[this.state.stepNum];
     const winner = calculateWinner(current.squares);
     const rowAndCol = this.state.rowAndCol;
-
-    const test = `test`;
-
     const moves = history.map((step, move) => {
-      /*console.log(history);
-      console.log(move);
-      move는 map의 원형에서 index에 위치한 값입니다.*/
       const desc = move
         ? `Go to move #` +
           move +
@@ -166,13 +179,25 @@ class Game extends React.Component {
           rowAndCol[move - 1][1] +
           ` 열 `
         : `Go to game start`;
-      // 초기에는 move의 값이 없고, 클릭 시 생성됩니다.
-      return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
-      );
+      if (rowAndCol[move - 1] === undefined) {
+        return (
+          <li key={move}>
+            <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          </li>
+        );
+      } else {
+        return (
+          <li key={move}>
+            <button
+              onClick={() => this.jumpTo(move, rowAndCol[move - 1][0], rowAndCol[move - 1][1])}
+            >
+              {desc}
+            </button>
+          </li>
+        );
+      }
     });
+    console.log(rowAndCol);
     let status;
     if (winner) {
       status = "Winner : " + winner;
@@ -192,7 +217,6 @@ class Game extends React.Component {
         <div className="game-info">
           <div>{status}</div>
           <ol>{moves}</ol>
-          {test}
         </div>
       </div>
     );
