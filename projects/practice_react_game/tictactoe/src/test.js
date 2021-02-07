@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 
 function calculateWinner(squares) {
+  const square = document.getElementsByClassName(`square`);
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -15,6 +16,9 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i]; // 해당 칸의 번호를 입력받는 과정
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      square[a].style.backgroundColor = `red`;
+      square[b].style.backgroundColor = `red`;
+      square[c].style.backgroundColor = `red`;
       return squares[a];
       // 여기서의 비교는 string 값의 비교가 된다. 하나의 line이 모두 같은 문자값이라면
       // 해당 문자를 다시 반화한다는 의미
@@ -87,6 +91,7 @@ class Game extends React.Component {
       xIsNext: true,
       stepNum: 0,
       rowAndCol: [],
+      sorted: 0,
     };
   }
 
@@ -164,6 +169,11 @@ class Game extends React.Component {
     this.setState({ stepNum: step, xIsNext: step % 2 === 0 });
   }
 
+  sortList(list) {
+    list.item();
+    return list;
+  }
+
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNum];
@@ -181,13 +191,13 @@ class Game extends React.Component {
         : `Go to game start`;
       if (rowAndCol[move - 1] === undefined) {
         return (
-          <li key={move}>
+          <li key={move} className="sort">
             <button onClick={() => this.jumpTo(move)}>{desc}</button>
           </li>
         );
       } else {
         return (
-          <li key={move}>
+          <li key={move} className="sort">
             <button
               onClick={() => this.jumpTo(move, rowAndCol[move - 1][0], rowAndCol[move - 1][1])}
             >
@@ -197,13 +207,15 @@ class Game extends React.Component {
         );
       }
     });
-    console.log(rowAndCol);
     let status;
+    let list = document.getElementsByClassName(`sort`);
+
     if (winner) {
       status = "Winner : " + winner;
     } else {
       status = "Next player : " + (this.state.xIsNext ? `X` : `O`);
     }
+
     return (
       <div className="game">
         <div className="game-board">
@@ -217,6 +229,7 @@ class Game extends React.Component {
         <div className="game-info">
           <div>{status}</div>
           <ol>{moves}</ol>
+          <button onClick={() => this.sortList(list)}></button>
         </div>
       </div>
     );
