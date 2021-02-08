@@ -91,7 +91,8 @@ class Game extends React.Component {
       xIsNext: true,
       stepNum: 0,
       rowAndCol: [],
-      sorted: 0,
+      sort: 0,
+      sortedList: [],
     };
   }
 
@@ -158,6 +159,13 @@ class Game extends React.Component {
   }
 
   jumpTo(step, rowNum, colNum) {
+    if (step === 0) {
+      const board = document.getElementsByClassName(`square`);
+      for (let index = 0; index < 9; index++) {
+        board[index].style.backgroundColor = `white`;
+      }
+      this.setState({ sortedList: [] }); // initializing
+    }
     if (rowNum === 1) {
       this.squareColor(rowNum + colNum - 2);
     } else if (rowNum === 2) {
@@ -169,9 +177,26 @@ class Game extends React.Component {
     this.setState({ stepNum: step, xIsNext: step % 2 === 0 });
   }
 
-  sortList(list) {
-    list.item();
-    return list;
+  sortList(JSXElement) {
+    let list = Array.from(JSXElement);
+    if (list.length === 1) {
+      return JSXElement;
+    } else {
+      if (this.state.sort === 0) {
+        list.sort((a, b) => {
+          return b.key - a.key;
+        });
+        this.setState({ sort: this.state.sort + 1 });
+      } else {
+        list.sort((a, b) => {
+          return a.key - b.key;
+        });
+        this.setState({ sort: this.state.sort - 1 });
+      }
+      this.setState({ sortedList: list });
+      console.log(this.state.sort);
+      console.log(this.state.sortedList);
+    }
   }
 
   render() {
@@ -191,13 +216,13 @@ class Game extends React.Component {
         : `Go to game start`;
       if (rowAndCol[move - 1] === undefined) {
         return (
-          <li key={move} className="sort">
+          <li key={move} className="sort" id={move}>
             <button onClick={() => this.jumpTo(move)}>{desc}</button>
           </li>
         );
       } else {
         return (
-          <li key={move} className="sort">
+          <li key={move} className="sort" id={move}>
             <button
               onClick={() => this.jumpTo(move, rowAndCol[move - 1][0], rowAndCol[move - 1][1])}
             >
@@ -207,13 +232,22 @@ class Game extends React.Component {
         );
       }
     });
-    let status;
-    let list = document.getElementsByClassName(`sort`);
 
+    let status;
     if (winner) {
       status = "Winner : " + winner;
     } else {
-      status = "Next player : " + (this.state.xIsNext ? `X` : `O`);
+      if (moves.length === 10) {
+        status = "Tie";
+      } else {
+        status = "Next player : " + (this.state.xIsNext ? `X` : `O`);
+      }
+    }
+    let list = this.state.sortedList;
+    if (moves.length === 1 || list.length < moves.length) {
+      list = moves;
+    } else {
+      list = this.state.sortedList;
     }
 
     return (
@@ -228,8 +262,8 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <ol>{moves}</ol>
-          <button onClick={() => this.sortList(list)}></button>
+          <ol>{list}</ol>
+          <button onClick={() => this.sortList(moves)}></button>
         </div>
       </div>
     );
